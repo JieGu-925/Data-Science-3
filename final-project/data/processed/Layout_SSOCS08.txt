@@ -1,0 +1,1983 @@
+/**************************************************************************
+ *** Layout File                                                        ***
+ ***                                                                    ***
+ *** This file is designed to provide the necessary information so      ***
+ *** that NCES survey response data may be used in other statistical    ***
+ *** software packages. This file provides variable names, locations,   ***
+ *** and short descriptions for all selected variables. Additionally,   ***
+ *** for categorical variables, this file also contains the response    ***
+ *** codes and value label descriptions.                                ***
+ ***                                                                    ***
+ *** Full sample weights, replicate weights, and identification         ***
+ *** numbers are added automatically to the list of variables selected  ***
+ *** by the EDAT and are included here.                                 ***
+ *************************************************************************/
+
+/* ASCII Dataset File Name */
+SSOCS_07_08
+
+/* Total Record Length */
+1499
+
+/* Variable Names, Locations, and Descriptions */
+SCHID     1-4           Temporary unique school identifier
+C0014_R   5-5           Title/position of respondent (recoded)***
+C0016_R   6-15          # of years respondent at the school (topcoded)***
+C0110     16-16         School practice require visitor check in
+C0112     17-17         Access controlled locked/monitored doors
+C0114     18-18         Grounds have locked/monitored gates
+C0116     19-19         Students pass through metal detectors
+C0120     20-20         Have random metal detector checks on students
+C0122     21-21         Practice to close campus for lunch
+C0124     22-22         Practice random dog sniffs for drugs
+C0126     23-23         Random sweeps for contraband not including dog sniffs
+C0128     24-24         Require drug testing for athletes
+C0130     25-25         Require drug testing for students in extra-curricular activities
+C0132     26-26         Require drug testing for any other students
+C0134     27-27         Require students to wear uniforms
+C0136     28-28         Practice to enforce a strict dress code
+C0138     29-29         Provide school lockers to students
+C0140     30-30         Require clear book bags or ban book bags
+C0141     31-31         Provide an electronic notification system that automatically notifies parents in case of a school-wide emergency
+C0142     32-32         Require students to wear badge or photo ID
+C0143     33-33         Provide a structured anonymous threat reporting system
+C0144     34-34         Require faculty/staff to wear badge or photo ID
+C0146     35-35         Security camera(s) monitor the school
+C0148     36-36         Provide telephones in most classrooms
+C0150     37-37         Provide two-way radios to any staff
+C0152     38-38         Tobacco prohibited on school grounds
+C0154     39-39         School has written plan for shootings
+C0156     40-41         Drilled students on plan for shootings
+C0158     42-42         Written plan for natural disasters
+C0160     43-44         Drilled students on plan for natural disasters
+C0162     45-45         Written crisis plan for hostages
+C0164     46-47         Drilled students on plan for hostages
+C0166     48-48         Written plan for bomb threats
+C0168     49-50         Drilled students on plan for bomb threats
+C0169     51-51         Written plan for suicide threat or incident
+C0170     52-52         Written plan for chemical, biological, or radiological threats
+C0171     53-53         Written plan for the U.S. national threat level is changed to Red
+C0172     54-55         Drilled students on plan for chemical, biological, or radiological threats
+C0173     56-56         Written plan for pandemic flu
+C0174     57-57         Prevention curriculum/instruction/training
+C0176     58-58         Behavioral modification for students
+C0178     59-59         Student counseling/social work
+C0180     60-60         Individual mentoring/tutoring students
+C0182     61-61         Recreation/enrichment student activities
+C0184     62-62         Student involvement resolving problems
+C0186     63-63         Promote sense of community/integration
+C0188     64-64         Hotline/tipline to report problems
+C0190     65-65         Formal process to obtain parental input
+C0192     66-66         Provide training/assistance to parents
+C0194     67-67         Program involves parents at school
+C0196     68-68         Parent participates in open house or back to school night
+C0198     69-69         Parent participates in parent-teacher conference
+C0200     70-70         Parent participates in subject-area events
+C0202     71-71         Parent volunteers at school
+C0204     72-72         Community involvement-parent groups
+C0206     73-73         Community involvement-social services
+C0208     74-74         Community involvement-juvenile justice
+C0210     75-75         Community involvement-law enforcement
+C0212     76-76         Community involvement-mental health
+C0214     77-77         Community involvement-civic organizations
+C0216     78-78         Community involvement-business
+C0218     79-79         Community involvement-religious organizations
+C0220     80-80         Security guard, security personnel, or sworn law enforcement officer
+C0222     81-82         Security used during school hours
+C0224     83-84         Security while students arrive/leave
+C0226     85-86         Security at selected school activities
+C0228     87-88         Security when school not occurring
+C0230     89-90         Other times security used
+C0244     91-92         Guards in uniform or identifiable clothes
+C0246     93-94         Guards carry a stun gun
+C0248     95-96         Guards carry chemical aerosol sprays
+C0250     97-98         Guards armed with firearms
+C0252     99-100        Security enforcement and patrol
+C0254     101-102       Maintain school discipline
+C0256     103-104       Coordinated with local police
+C0258     105-106       Identify problems and seek solutions
+C0260     107-108       Train teachers in school safety
+C0262     109-110       Mentor students
+C0264     111-112       Teach or train students (e.g., drug-related education)
+C0266     113-113       Teacher training-classroom management
+C0268     114-114       Teacher training-discipline policies
+C0270     115-115       Teacher training-safety procedures
+C0272     116-116       Teacher training-early warning signs for violent behavior
+C0274     117-117       Teacher training-student alcohol/drug abuse
+C0276     118-118       Teacher training-positive behavioral intervention
+C0280     119-119       Efforts limited by inadequate/lack of teacher training
+C0282     120-120       Efforts limited by inadequate/lack of alternative placement
+C0284     121-121       Efforts limited by parental complaints
+C0286     122-122       Efforts limited by inadequate/lack of teacher support
+C0288     123-123       Efforts limited by inadequate/lack of parent support
+C0290     124-124       Efforts limited by fear of student retaliation
+C0292     125-125       Efforts limited by fear of litigation
+C0294     126-126       Efforts limited by inadequate funds
+C0296     127-127       Efforts limited by inconsistent application of policies
+C0298     128-128       Efforts limited by fear of district or state reprisal
+C0300     129-129       Efforts limited by fed policies/special ed
+C0302     130-130       Efforts limited by other federal policies-not special ed
+C0304     131-131       Efforts limited by other state/district policies-not special ed
+C0306     132-132       Any school deaths from homicides
+C0308     133-133       School shooting incidents
+C0374     134-134       How often student racial/ethnic tensions
+C0376     135-135       How often student bullying occurs
+C0378     136-136       How often student sexual harassment of students
+C0380     137-137       How often student verbal abuse of teachers
+C0382     138-138       How often widespread disorder in classrooms
+C0384     139-139       How often student acts of disrespect for teachers-not verbal abuse
+C0386     140-140       How often student gang activities
+C0388     141-141       How often do cult or extremist group activities occur at school
+C0390     142-142       Removal with no services available
+C0392     143-144       Removal with no services available-action used
+C0394     145-145       Removal with tutoring/at-home instruction available
+C0396     146-147       Removal with tutoring/at-home instruction available-action used
+C0398     148-148       Transfer to specialized school available
+C0400     149-150       Transfer to specialized school available-action used
+C0402     151-151       Transfer to regular school available
+C0404     152-153       Transfer to regular school available-action used
+C0406     154-154       Outside suspension/no services available
+C0408     155-156       Outside suspension/no services available-action used
+C0410     157-157       Outside suspension with services available
+C0412     158-159       Outside suspension with services available-action used
+C0414     160-160       In-school suspension/no services available
+C0416     161-162       In-school suspension/no services available-action used
+C0418     163-163       In-school suspension with services available
+C0420     164-165       In-school suspension with services available-action used
+C0422     166-166       Referral to school counselor available
+C0424     167-168       Referral to school counselor available-action used
+C0426     169-169       In-school disciplinary plan available
+C0428     170-171       In-school disciplinary plan available - action used
+C0430     172-172       Outside school disciplinary plan available
+C0432     173-174       Outside school disciplinary plan available - action used
+C0434     175-175       Keep off bus for misbehavior available
+C0436     176-177       Keep off bus for misbehavior available-action used
+C0438     178-178       Corporal punishment available
+C0440     179-180       Corporal punishment available-action used
+C0442     181-181       School probation available
+C0444     182-183       School probation available-action used
+C0446     184-184       Detention/Saturday school available
+C0448     185-186       Detention/Saturday school available-action used
+C0450     187-187       Loss of student privileges available
+C0452     188-189       Loss of student privileges available-action used
+C0454     190-190       Require community service available
+C0456     191-192       Require community service available-action used
+C0508     193-196       # of students involved in insubordination-total
+C0510     197-199       # of removals for insubordination
+C0512     200-202       # of transfers for insubordination
+C0514     203-206       # of suspensions for insubordination
+C0516     207-210       # of other actions for insubordination
+C0518     211-213       # of removals with no service-total
+C0520     214-216       # of transfers to specialized schools-total
+C0526     217-219       Percentage students limited English proficient
+C0528     220-222       Percentage special education students
+C0532     223-225       Percentage students below 15th percentile standardized tests
+C0534     226-228       Percentage students likely to go to college
+C0536     229-231       Percentage students academic achievement important
+C0538     232-233       Typical number of classroom changes
+C0540_R   234-243       # of paid full-time special ed teacher (topcoded)
+C0542_R   244-252       # of paid part-time special ed teacher (topcoded)
+C0544_R   253-262       # of paid full-time special ed aides (topcoded)
+C0546_R   263-272       # of paid part-time special ed aides (topcoded)
+C0556_R   273-282       # of paid full-time counselors (topcoded)
+C0558_R   283-291       # of paid part-time counselors (topcoded)
+C0560     292-292       Crime where students live
+C0562     293-293       Crime where school located
+C0568     294-296       Average percentage daily attendance
+C0570     297-300       # of students transferred to school
+C0572     301-303       # of students transferred from school
+C0578     304-311       Date questionnaire completed MMDDYYYY***
+C0578_DD  312-313       Day questionnaire completed***
+C0578_MM  314-315       Month questionnaire completed***
+C0578_YY  316-319       Year questionnaire completed***
+C0580     320-322       Time required to complete questionnaire***
+CRISIS08  323-323       # of types of crises covered in written plans
+DISTOT08  324-327       Total number of disciplinary actions recorded
+INCID08   328-330       Total number of incidents recorded
+INCPOL08  331-333       Total number of incidents reported to police
+OTHACT08  334-337       Total 'other actions' for specified offenses
+OUTSUS08  338-341       Total OSS > 5 days but < the remainder of school for specified offenses
+PROBWK08  342-342       # of types of problems that occur daily or at least once a week
+REMOVL08  343-345       Total removals with no continuing school services for specified offenses
+STRATA    346-348       Collapsed STRATUM code***
+STUOFF08  349-352       Total students involved in specified offenses
+SVINC08   353-355       Total number of serious violent incidents recorded
+SVPOL08   356-358       Total number of serious violent incidents reported to police
+TRANSF08  359-361       Total transfers to specialized schools for specified offenses
+VIOINC08  362-364       Total number of violent incidents recorded
+VIOPOL08  365-367       Total number of violent incidents reported to police
+DISFIRE08 368-370       Total number of disciplinary actions recorded for use or possession of a firearm or explosive device
+DISWEAP08 371-373       Total number of disciplinary actions recorded for use or possession of a weapon other than a firearm or explosive device
+DISDRUG08 374-376       Total number of disciplinary actions recorded for distribution, possession, or use of illegal drugs
+DISALC08  377-378       Total number of disciplinary actions recorded for distribution, possession, or use of alcohol
+DISATT08  379-381       Total number of disciplinary actions recorded for physical attacks or fights
+DISINS08  382-385       Total number of disciplinary actions recorded for insubordination
+GANGHATE  386-388       Total number of gang-related and hate crimes
+DISRUPT   389-390       Total number of disruptions
+SEC_FT    391-393       Total number of full-time security guards, SROs, or law enforcement***
+SEC_PT    394-395       Total number of part-time security guards, SROs, or law enforcement***
+FR_CATMN  396-396       Recoded % of combined Black/African American, Hispanic/Latino, Asian, Native Hawaiian/Other Pacific Islander, and American Indian/Alaska Native student enrollment in school – based on 05-06 CCD frame variables (School)
+FR_LVEL   397-397       School grades offered - based on 05-06 CCD frame variables (School)
+FR_SIZE   398-398       School size categories - based on 05-06 CCD frame variables (School)
+FR_URBAN  399-399       Urbanicity - based on urban-centric location of school 05-06 CCD (School)
+FINALWGT  400-417       Final weight for the sample
+REPWGT1   418-435       Jackknife replicate 1
+REPWGT2   436-453       Jackknife replicate 2
+REPWGT3   454-471       Jackknife replicate 3
+REPWGT4   472-489       Jackknife replicate 4
+REPWGT5   490-507       Jackknife replicate 5
+REPWGT6   508-525       Jackknife replicate 6
+REPWGT7   526-543       Jackknife replicate 7
+REPWGT8   544-561       Jackknife replicate 8
+REPWGT9   562-579       Jackknife replicate 9
+REPWGT10  580-597       Jackknife replicate 10
+REPWGT11  598-615       Jackknife replicate 11
+REPWGT12  616-633       Jackknife replicate 12
+REPWGT13  634-651       Jackknife replicate 13
+REPWGT14  652-669       Jackknife replicate 14
+REPWGT15  670-687       Jackknife replicate 15
+REPWGT16  688-705       Jackknife replicate 16
+REPWGT17  706-723       Jackknife replicate 17
+REPWGT18  724-741       Jackknife replicate 18
+REPWGT19  742-759       Jackknife replicate 19
+REPWGT20  760-777       Jackknife replicate 20
+REPWGT21  778-795       Jackknife replicate 21
+REPWGT22  796-813       Jackknife replicate 22
+REPWGT23  814-831       Jackknife replicate 23
+REPWGT24  832-849       Jackknife replicate 24
+REPWGT25  850-867       Jackknife replicate 25
+REPWGT26  868-885       Jackknife replicate 26
+REPWGT27  886-903       Jackknife replicate 27
+REPWGT28  904-921       Jackknife replicate 28
+REPWGT29  922-939       Jackknife replicate 29
+REPWGT30  940-957       Jackknife replicate 30
+REPWGT31  958-975       Jackknife replicate 31
+REPWGT32  976-993       Jackknife replicate 32
+REPWGT33  994-1011      Jackknife replicate 33
+REPWGT34  1012-1029     Jackknife replicate 34
+REPWGT35  1030-1047     Jackknife replicate 35
+REPWGT36  1048-1065     Jackknife replicate 36
+REPWGT37  1066-1083     Jackknife replicate 37
+REPWGT38  1084-1101     Jackknife replicate 38
+REPWGT39  1102-1119     Jackknife replicate 39
+REPWGT40  1120-1137     Jackknife replicate 40
+REPWGT41  1138-1155     Jackknife replicate 41
+REPWGT42  1156-1173     Jackknife replicate 42
+REPWGT43  1174-1191     Jackknife replicate 43
+REPWGT44  1192-1209     Jackknife replicate 44
+REPWGT45  1210-1227     Jackknife replicate 45
+REPWGT46  1228-1245     Jackknife replicate 46
+REPWGT47  1246-1263     Jackknife replicate 47
+REPWGT48  1264-1281     Jackknife replicate 48
+REPWGT49  1282-1299     Jackknife replicate 49
+REPWGT50  1300-1317     Jackknife replicate 50
+IC0110    1318-1318     Imputation Flag
+IC0112    1319-1319     Imputation Flag
+IC0114    1320-1320     Imputation Flag
+IC0116    1321-1321     Imputation Flag
+IC0120    1322-1322     Imputation Flag
+IC0122    1323-1323     Imputation Flag
+IC0124    1324-1324     Imputation Flag
+IC0126    1325-1325     Imputation Flag
+IC0128    1326-1326     Imputation Flag
+IC0130    1327-1327     Imputation Flag
+IC0132    1328-1328     Imputation Flag
+IC0134    1329-1329     Imputation Flag
+IC0136    1330-1330     Imputation Flag
+IC0138    1331-1331     Imputation Flag
+IC0140    1332-1332     Imputation Flag
+IC0141    1333-1333     Imputation Flag
+IC0142    1334-1334     Imputation Flag
+IC0143    1335-1335     Imputation Flag
+IC0144    1336-1336     Imputation Flag
+IC0146    1337-1337     Imputation Flag
+IC0148    1338-1338     Imputation Flag
+IC0150    1339-1339     Imputation Flag
+IC0152    1340-1340     Imputation Flag
+IC0154    1341-1341     Imputation Flag
+IC0156    1342-1342     Imputation Flag
+IC0158    1343-1343     Imputation Flag
+IC0160    1344-1344     Imputation Flag
+IC0162    1345-1345     Imputation Flag
+IC0164    1346-1346     Imputation Flag
+IC0166    1347-1347     Imputation Flag
+IC0168    1348-1348     Imputation Flag
+IC0169    1349-1349     Imputation Flag
+IC0170    1350-1350     Imputation Flag
+IC0171    1351-1351     Imputation Flag
+IC0172    1352-1352     Imputation Flag
+IC0173    1353-1353     Imputation Flag
+IC0174    1354-1354     Imputation Flag
+IC0176    1355-1355     Imputation Flag
+IC0178    1356-1356     Imputation Flag
+IC0180    1357-1357     Imputation Flag
+IC0182    1358-1358     Imputation Flag
+IC0184    1359-1359     Imputation Flag
+IC0186    1360-1360     Imputation Flag
+IC0188    1361-1361     Imputation Flag
+IC0190    1362-1362     Imputation Flag
+IC0192    1363-1363     Imputation Flag
+IC0194    1364-1364     Imputation Flag
+IC0196    1365-1365     Imputation Flag
+IC0198    1366-1366     Imputation Flag
+IC0200    1367-1367     Imputation Flag
+IC0202    1368-1368     Imputation Flag
+IC0204    1369-1369     Imputation Flag
+IC0206    1370-1370     Imputation Flag
+IC0208    1371-1371     Imputation Flag
+IC0210    1372-1372     Imputation Flag
+IC0212    1373-1373     Imputation Flag
+IC0214    1374-1374     Imputation Flag
+IC0216    1375-1375     Imputation Flag
+IC0218    1376-1376     Imputation Flag
+IC0220    1377-1377     Imputation Flag
+IC0222    1378-1378     Imputation Flag
+IC0224    1379-1379     Imputation Flag
+IC0226    1380-1380     Imputation Flag
+IC0228    1381-1381     Imputation Flag
+IC0230    1382-1382     Imputation Flag
+IC0244    1383-1383     Imputation Flag
+IC0246    1384-1384     Imputation Flag
+IC0248    1385-1385     Imputation Flag
+IC0250    1386-1386     Imputation Flag
+IC0252    1387-1387     Imputation Flag
+IC0254    1388-1388     Imputation Flag
+IC0256    1389-1389     Imputation Flag
+IC0258    1390-1390     Imputation Flag
+IC0260    1391-1391     Imputation Flag
+IC0262    1392-1392     Imputation Flag
+IC0264    1393-1393     Imputation Flag
+IC0266    1394-1394     Imputation Flag
+IC0268    1395-1395     Imputation Flag
+IC0270    1396-1396     Imputation Flag
+IC0272    1397-1397     Imputation Flag
+IC0274    1398-1398     Imputation Flag
+IC0276    1399-1399     Imputation Flag
+IC0280    1400-1400     Imputation Flag
+IC0282    1401-1401     Imputation Flag
+IC0284    1402-1402     Imputation Flag
+IC0286    1403-1403     Imputation Flag
+IC0288    1404-1404     Imputation Flag
+IC0290    1405-1405     Imputation Flag
+IC0292    1406-1406     Imputation Flag
+IC0294    1407-1407     Imputation Flag
+IC0296    1408-1408     Imputation Flag
+IC0298    1409-1409     Imputation Flag
+IC0300    1410-1410     Imputation Flag
+IC0302    1411-1411     Imputation Flag
+IC0304    1412-1412     Imputation Flag
+IC0306    1413-1413     Imputation Flag
+IC0308    1414-1414     Imputation Flag
+IC0374    1415-1415     Imputation Flag
+IC0376    1416-1416     Imputation Flag
+IC0378    1417-1417     Imputation Flag
+IC0380    1418-1418     Imputation Flag
+IC0382    1419-1419     Imputation Flag
+IC0384    1420-1420     Imputation Flag
+IC0386    1421-1421     Imputation Flag
+IC0388    1422-1422     Imputation Flag
+IC0390    1423-1423     Imputation Flag
+IC0392    1424-1424     Imputation Flag
+IC0394    1425-1425     Imputation Flag
+IC0396    1426-1426     Imputation Flag
+IC0398    1427-1427     Imputation Flag
+IC0400    1428-1428     Imputation Flag
+IC0402    1429-1429     Imputation Flag
+IC0404    1430-1430     Imputation Flag
+IC0406    1431-1432     Imputation Flag
+IC0408    1433-1434     Imputation Flag
+IC0410    1435-1436     Imputation Flag
+IC0412    1437-1438     Imputation Flag
+IC0414    1439-1439     Imputation Flag
+IC0416    1440-1440     Imputation Flag
+IC0418    1441-1441     Imputation Flag
+IC0420    1442-1442     Imputation Flag
+IC0422    1443-1443     Imputation Flag
+IC0424    1444-1444     Imputation Flag
+IC0426    1445-1445     Imputation Flag
+IC0428    1446-1446     Imputation Flag
+IC0430    1447-1447     Imputation Flag
+IC0432    1448-1448     Imputation Flag
+IC0434    1449-1449     Imputation Flag
+IC0436    1450-1450     Imputation Flag
+IC0438    1451-1451     Imputation Flag
+IC0440    1452-1452     Imputation Flag
+IC0442    1453-1453     Imputation Flag
+IC0444    1454-1454     Imputation Flag
+IC0446    1455-1455     Imputation Flag
+IC0448    1456-1456     Imputation Flag
+IC0450    1457-1457     Imputation Flag
+IC0452    1458-1458     Imputation Flag
+IC0454    1459-1459     Imputation Flag
+IC0456    1460-1460     Imputation Flag
+IC0508    1461-1462     Imputation Flag
+IC0510    1463-1464     Imputation Flag
+IC0512    1465-1466     Imputation Flag
+IC0514    1467-1468     Imputation Flag
+IC0516    1469-1470     Imputation Flag
+IC0518    1471-1472     Imputation Flag
+IC0520    1473-1474     Imputation Flag
+IC0526    1475-1475     Imputation Flag
+IC0528    1476-1476     Imputation Flag
+IC0532    1477-1477     Imputation Flag
+IC0534    1478-1478     Imputation Flag
+IC0536    1479-1479     Imputation Flag
+IC0538    1480-1480     Imputation Flag
+IC0540    1481-1482     Imputation Flag
+IC0542    1483-1484     Imputation Flag
+IC0544    1485-1486     Imputation Flag
+IC0546    1487-1488     Imputation Flag
+IC0556    1489-1490     Imputation Flag
+IC0558    1491-1492     Imputation Flag
+IC0560    1493-1493     Imputation Flag
+IC0562    1494-1494     Imputation Flag
+IC0568    1495-1495     Imputation Flag
+IC0570    1496-1497     Imputation Flag
+IC0572    1498-1499     Imputation Flag
+
+/* Variable Value Labels */
+C0014_R
+    = "Missing"
+   1 = "Principal"
+   2 = "Vice-principal or disciplinarian"
+   3 = "Security staff"
+   4 = "Other school-level staff"
+   5 = "Superintendent or district staff"
+   6 = "Multiple respondents, principal plus other"
+C0016_R
+   31 or more = "31 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+   09 = "9"
+   10 = "10"
+   11 = "11"
+   12 = "12"
+   13 = "13"
+   14 = "14"
+   15 = "15"
+   16 = "16"
+   17 = "17"
+   18 = "18"
+   19 = "19"
+   20 = "20"
+   21 = "21"
+   22 = "22"
+   23 = "23"
+   24 = "24"
+   25 = "25"
+   26 = "26"
+   27 = "27"
+   28 = "28"
+   29 = "29"
+   30 = "30"
+   -1 = "Missing"
+C0110
+   1 = "Yes"
+   2 = "No"
+C0112
+   1 = "Yes"
+   2 = "No"
+C0114
+   1 = "Yes"
+   2 = "No"
+C0116
+   1 = "Yes"
+   2 = "No"
+C0120
+   1 = "Yes"
+   2 = "No"
+C0122
+   1 = "Yes"
+   2 = "No"
+C0124
+   1 = "Yes"
+   2 = "No"
+C0126
+   1 = "Yes"
+   2 = "No"
+C0128
+   1 = "Yes"
+   2 = "No"
+C0130
+   1 = "Yes"
+   2 = "No"
+C0132
+   1 = "Yes"
+   2 = "No"
+C0134
+   1 = "Yes"
+   2 = "No"
+C0136
+   1 = "Yes"
+   2 = "No"
+C0138
+   1 = "Yes"
+   2 = "No"
+C0140
+   1 = "Yes"
+   2 = "No"
+C0141
+   1 = "Yes"
+   2 = "No"
+C0142
+   1 = "Yes"
+   2 = "No"
+C0143
+   1 = "Yes"
+   2 = "No"
+C0144
+   1 = "Yes"
+   2 = "No"
+C0146
+   1 = "Yes"
+   2 = "No"
+C0148
+   1 = "Yes"
+   2 = "No"
+C0150
+   1 = "Yes"
+   2 = "No"
+C0152
+   1 = "Yes"
+   2 = "No"
+C0154
+   1 = "Yes"
+   2 = "No"
+C0156
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0158
+   1 = "Yes"
+   2 = "No"
+C0160
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0162
+   1 = "Yes"
+   2 = "No"
+C0164
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0166
+   1 = "Yes"
+   2 = "No"
+C0168
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0169
+   1 = "Yes"
+   2 = "No"
+C0170
+   1 = "Yes"
+   2 = "No"
+C0171
+   1 = "Yes"
+   2 = "No"
+C0172
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0173
+   1 = "Yes"
+   2 = "No"
+C0174
+   1 = "Yes"
+   2 = "No"
+C0176
+   1 = "Yes"
+   2 = "No"
+C0178
+   1 = "Yes"
+   2 = "No"
+C0180
+   1 = "Yes"
+   2 = "No"
+C0182
+   1 = "Yes"
+   2 = "No"
+C0184
+   1 = "Yes"
+   2 = "No"
+C0186
+   1 = "Yes"
+   2 = "No"
+C0188
+   1 = "Yes"
+   2 = "No"
+C0190
+   1 = "Yes"
+   2 = "No"
+C0192
+   1 = "Yes"
+   2 = "No"
+C0194
+   1 = "Yes"
+   2 = "No"
+C0196
+   1 = "0-25%"
+   2 = "26-50%"
+   3 = "51-75%"
+   4 = "76-100%"
+   5 = "School does not offer"
+C0198
+   1 = "0-25%"
+   2 = "26-50%"
+   3 = "51-75%"
+   4 = "76-100%"
+   5 = "School does not offer"
+C0200
+   1 = "0-25%"
+   2 = "26-50%"
+   3 = "51-75%"
+   4 = "76-100%"
+   5 = "School does not offer"
+C0202
+   1 = "0-25%"
+   2 = "26-50%"
+   3 = "51-75%"
+   4 = "76-100%"
+   5 = "School does not offer"
+C0204
+   1 = "Yes"
+   2 = "No"
+C0206
+   1 = "Yes"
+   2 = "No"
+C0208
+   1 = "Yes"
+   2 = "No"
+C0210
+   1 = "Yes"
+   2 = "No"
+C0212
+   1 = "Yes"
+   2 = "No"
+C0214
+   1 = "Yes"
+   2 = "No"
+C0216
+   1 = "Yes"
+   2 = "No"
+C0218
+   1 = "Yes"
+   2 = "No"
+C0220
+   1 = "Yes"
+   2 = "No"
+C0222
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0224
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0226
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0228
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0230
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0244
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0246
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0248
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0250
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0252
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0254
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0256
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0258
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0260
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0262
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0264
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0266
+   1 = "Yes"
+   2 = "No"
+C0268
+   1 = "Yes"
+   2 = "No"
+C0270
+   1 = "Yes"
+   2 = "No"
+C0272
+   1 = "Yes"
+   2 = "No"
+C0274
+   1 = "Yes"
+   2 = "No"
+C0276
+   1 = "Yes"
+   2 = "No"
+C0280
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0282
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0284
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0286
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0288
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0290
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0292
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0294
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0296
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0298
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0300
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0302
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0304
+   1 = "Limits in major way"
+   2 = "Limits in minor way"
+   3 = "Does not limit"
+C0306
+   1 = "Yes"
+   2 = "No"
+C0308
+   1 = "Yes"
+   2 = "No"
+C0374
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0376
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0378
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0380
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0382
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0384
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0386
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0388
+   1 = "Happens daily"
+   2 = "Happens at least once a week"
+   3 = "Happens at least once a month"
+   4 = "Happens on occasion"
+   5 = "Never happens"
+C0390
+   1 = "Yes"
+   2 = "No"
+C0392
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0394
+   1 = "Yes"
+   2 = "No"
+C0396
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0398
+   1 = "Yes"
+   2 = "No"
+C0400
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0402
+   1 = "Yes"
+   2 = "No"
+C0404
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0406
+   1 = "Yes"
+   2 = "No"
+C0408
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0410
+   1 = "Yes"
+   2 = "No"
+C0412
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0414
+   1 = "Yes"
+   2 = "No"
+C0416
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0418
+   1 = "Yes"
+   2 = "No"
+C0420
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0422
+   1 = "Yes"
+   2 = "No"
+C0424
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0426
+   1 = "Yes"
+   2 = "No"
+C0428
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0430
+   1 = "Yes"
+   2 = "No"
+C0432
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0434
+   1 = "Yes"
+   2 = "No"
+C0436
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0438
+   1 = "Yes"
+   2 = "No"
+C0440
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0442
+   1 = "Yes"
+   2 = "No"
+C0444
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0446
+   1 = "Yes"
+   2 = "No"
+C0448
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0450
+   1 = "Yes"
+   2 = "No"
+C0452
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0454
+   1 = "Yes"
+   2 = "No"
+C0456
+   1 = "Yes"
+   2 = "No"
+   -1 = "Legitimate Skip"
+C0510
+C0538
+C0540_R
+   26 or more = "26 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+   09 = "9"
+   10 = "10"
+   11 = "11"
+   12 = "12"
+   13 = "13"
+   14 = "14"
+   15 = "15"
+   16 = "16"
+   17 = "17"
+   18 = "18"
+   19 = "19"
+   20 = "20"
+   21 = "21"
+   22 = "22"
+   23 = "23"
+   24 = "24"
+   25 = "25"
+C0542_R
+   9 or more = "9 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+C0544_R
+   26 or more = "26 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+   09 = "9"
+   10 = "10"
+   11 = "11"
+   12 = "12"
+   13 = "13"
+   14 = "14"
+   15 = "15"
+   16 = "16"
+   17 = "17"
+   18 = "18"
+   19 = "19"
+   20 = "20"
+   21 = "21"
+   22 = "22"
+   23 = "23"
+   24 = "24"
+   25 = "25"
+C0546_R
+   11 or more = "11 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+   09 = "9"
+   10 = "10"
+C0556_R
+   11 or more = "11 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+   06 = "6"
+   07 = "7"
+   08 = "8"
+   09 = "9"
+   10 = "10"
+C0558_R
+   6 or more = "6 or more"
+   00 = "0"
+   01 = "1"
+   02 = "2"
+   03 = "3"
+   04 = "4"
+   05 = "5"
+C0560
+   1 = "High level of crime"
+   2 = "Moderate level of crime"
+   3 = "Low level of crime"
+   4 = "Students come from areas with very different levels of crime"
+C0562
+   1 = "High level of crime"
+   2 = "Moderate level of crime"
+   3 = "Low level of crime"
+C0578
+    = "Missing"
+   01012008 = "0101200"
+   02042008 = "0204200"
+   02132008 = "0213200"
+   02222008 = "0222200"
+   02252008 = "0225200"
+   02262008 = "0226200"
+   02272008 = "0227200"
+   02282008 = "0228200"
+   02292008 = "0229200"
+   02772008 = "0277200"
+   03002008 = "0300200"
+   03012008 = "0301200"
+   03022008 = "0302200"
+   03032008 = "0303200"
+   03042008 = "0304200"
+   03052008 = "0305200"
+   03062008 = "0306200"
+   03072008 = "0307200"
+   03082008 = "0308200"
+   03092008 = "0309200"
+   03102008 = "0310200"
+   03112008 = "0311200"
+   03122008 = "0312200"
+   03132008 = "0313200"
+   03142008 = "0314200"
+   03152008 = "0315200"
+   03162008 = "0316200"
+   03172008 = "0317200"
+   03182008 = "0318200"
+   03192008 = "0319200"
+   03202008 = "0320200"
+   03212008 = "0321200"
+   03222008 = "0322200"
+   03232008 = "0323200"
+   03242008 = "0324200"
+   03252008 = "0325200"
+   03262008 = "0326200"
+   03272008 = "0327200"
+   03282008 = "0328200"
+   03292008 = "0329200"
+   03302008 = "0330200"
+   03312008 = "0331200"
+   04002008 = "0400200"
+   04012008 = "0401200"
+   04022008 = "0402200"
+   04032008 = "0403200"
+   04042008 = "0404200"
+   04052008 = "0405200"
+   04062008 = "0406200"
+   04072008 = "0407200"
+   04082008 = "0408200"
+   04092008 = "0409200"
+   04102008 = "0410200"
+   04112008 = "0411200"
+   04122008 = "0412200"
+   04132008 = "0413200"
+   04142008 = "0414200"
+   04152008 = "0415200"
+   04162008 = "0416200"
+   04172008 = "0417200"
+   04182008 = "0418200"
+   04192008 = "0419200"
+   04202008 = "0420200"
+   04212008 = "0421200"
+   04222008 = "0422200"
+   04232008 = "0423200"
+   04242008 = "0424200"
+   04252008 = "0425200"
+   04262008 = "0426200"
+   04272008 = "0427200"
+   04282008 = "0428200"
+   04292008 = "0429200"
+   04302008 = "0430200"
+   05002008 = "0500200"
+   05012008 = "0501200"
+   05022008 = "0502200"
+   05032008 = "0503200"
+   05042008 = "0504200"
+   05052008 = "0505200"
+   05062008 = "0506200"
+   05072008 = "0507200"
+   05082008 = "0508200"
+   05092008 = "0509200"
+   05102008 = "0510200"
+   05112008 = "0511200"
+   05122008 = "0512200"
+   05132008 = "0513200"
+   05142008 = "0514200"
+   05152008 = "0515200"
+   05162008 = "0516200"
+   05192008 = "0519200"
+   05202008 = "0520200"
+   05212008 = "0521200"
+   05222008 = "0522200"
+   05232008 = "0523200"
+   05272008 = "0527200"
+   05282008 = "0528200"
+   05292008 = "0529200"
+   05302008 = "0530200"
+   05312008 = "0531200"
+   06012008 = "0601200"
+   06022008 = "0602200"
+   06032008 = "0603200"
+   06042008 = "0604200"
+   06052008 = "0605200"
+   06062008 = "0606200"
+   06092008 = "0609200"
+   06102008 = "0610200"
+   06112008 = "0611200"
+   06122008 = "0612200"
+   06132008 = "0613200"
+   06142008 = "0614200"
+   06172008 = "0617200"
+   06182008 = "0618200"
+   06192008 = "0619200"
+   06242008 = "0624200"
+   08142008 = "0814200"
+   10352008 = "1035200"
+C0578_DD
+    = "Missing"
+   0 = "0"
+   1 = "1"
+   2 = "2"
+   3 = "3"
+   4 = "4"
+   5 = "5"
+   6 = "6"
+   7 = "7"
+   8 = "8"
+   9 = "9"
+   10 = "10"
+   11 = "11"
+   12 = "12"
+   13 = "13"
+   14 = "14"
+   15 = "15"
+   16 = "16"
+   17 = "17"
+   18 = "18"
+   19 = "19"
+   20 = "20"
+   21 = "21"
+   22 = "22"
+   23 = "23"
+   24 = "24"
+   25 = "25"
+   26 = "26"
+   27 = "27"
+   28 = "28"
+   29 = "29"
+   30 = "30"
+   31 = "31"
+   35 = "35"
+   77 = "77"
+C0578_MM
+    = "Missing"
+   1 = "1"
+   2 = "2"
+   3 = "3"
+   4 = "4"
+   5 = "5"
+   6 = "6"
+   8 = "8"
+   10 = "10"
+C0578_YY
+   2008 = "2008"
+FR_CATMN
+   1 = "Less than 5 percent"
+   2 = "5 to less than 20 percent"
+   3 = "20 to less than 50 percent"
+   4 = "50 percent or more"
+FR_LVEL
+   1 = "Primary"
+   2 = "Middle"
+   3 = "High"
+   4 = "Combined"
+FR_SIZE
+   1 = "< 300"
+   2 = "300 - 499"
+   3 = "500 - 999"
+   4 = "1,000 +"
+FR_URBAN
+   1 = "City"
+   2 = "Suburb"
+   3 = "Town"
+   4 = "Rural"
+IC0110
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0112
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0114
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0116
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0120
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0122
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0124
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0126
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0128
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0130
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0132
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0134
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0136
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0138
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0140
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0141
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0142
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0143
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0144
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0146
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0148
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0150
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0152
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0154
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0156
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0158
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0160
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0162
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0164
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0166
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0168
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0169
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0170
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0171
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0172
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0173
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0174
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0176
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0178
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0180
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0182
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0184
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0186
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0188
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0190
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0192
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0194
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0196
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0198
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0200
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0202
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0204
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0206
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0208
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0210
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0212
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0214
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0216
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0218
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0220
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0222
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0224
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0226
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0228
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0230
+   0 = "Value not imputed"
+IC0244
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0246
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0248
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0250
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0252
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0254
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0256
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0258
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0260
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0262
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0264
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0266
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0268
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0270
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0272
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0274
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0276
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0280
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0282
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0284
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0286
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0288
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0290
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0292
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0294
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0296
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0298
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0300
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0302
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0304
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0306
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0308
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0374
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0376
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0378
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0380
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0382
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0384
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0386
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0388
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+IC0390
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0392
+   0 = "Value not imputed"
+   3 = "'No'/'yes' value logically imputed to = 'yes'/'no'"
+IC0394
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0396
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0398
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0400
+   0 = "Value not imputed"
+   2 = "Missing value logically imputed to = 'yes'/'no'"
+   3 = "'No'/'yes' value logically imputed to = 'yes'/'no'"
+IC0402
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0404
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0406
+   0 = "Value not imputed"
+   2 = "Missing value logically imputed to = 'yes'/'no'"
+   3 = "'No'/'yes' value logically imputed to = 'yes'/'no'"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+   28 = "Values imputed clerically"
+IC0408
+   0 = "Value not imputed"
+   2 = "Missing value logically imputed to = 'yes'/'no'"
+   3 = "'No'/'yes' value logically imputed to = 'yes'/'no'"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+   28 = "Values imputed clerically"
+IC0410
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+   28 = "Values imputed clerically"
+IC0412
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+   28 = "Values imputed clerically"
+IC0414
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0416
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0418
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0420
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0422
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0424
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0426
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0428
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0430
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0432
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0434
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0436
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0438
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0440
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0442
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0444
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0446
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0448
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0450
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0452
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0454
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0456
+   0 = "Value not imputed"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0508
+   0 = "Value not imputed"
+   13 = "Value imputed in order to maintain balance within Q22 row and between Q22 and Q23"
+   14 = "Values found by taking average ratio from an entire imputation class"
+   21 = "Values imputed from nonimputed column 2-5 values"
+   28 = "Values imputed clerically"
+IC0510
+   0 = "Value not imputed"
+   14 = "Values found by taking average ratio from an entire imputation class"
+   22 = "Values adjusted downward to maintain relationship between q22 and q23"
+   28 = "Values imputed clerically"
+IC0512
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   14 = "Values found by taking average ratio from an entire imputation class"
+   28 = "Values imputed clerically"
+IC0514
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   14 = "Values found by taking average ratio from an entire imputation class"
+   28 = "Values imputed clerically"
+IC0516
+   0 = "Value not imputed"
+   14 = "Values found by taking average ratio from an entire imputation class"
+   16 = "Modal value imputed"
+   28 = "Values imputed clerically"
+IC0518
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+IC0520
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+   28 = "Values imputed clerically"
+IC0526
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0528
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0532
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0534
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0536
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0538
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0540
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+   28 = "Values imputed clerically"
+IC0542
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+IC0544
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+   28 = "Values imputed clerically"
+IC0546
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+IC0556
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+IC0558
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+   28 = "Values imputed clerically"
+IC0560
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0562
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0568
+   0 = "Value not imputed"
+   5 = "Missing value imputed using Best Match procedure (perfect match)"
+   6 = "Missing value imputed using Best Match procedure (relaxed criteria)"
+IC0570
+   0 = "Value not imputed"
+   10 = "Zeros imputed based on % observed in the donor class"
+   11 = "Values found using average ratio from 5 donors"
+IC0572
+   0 = "Value not imputed"
+   13 = "Value imputed in order to maintain balance within Q22 row and between Q22 and Q23"
+   18 = "Values found by finding avg values within an entire imputation"
+   28 = "Values imputed clerically"
+STRATA
+   111 = "Primary, <300, City"
+   112 = "Primary, <300, Suburb"
+   113 = "Primary, <300, Town"
+   114 = "Primary, <300, Rural"
+   121 = "Primary, 300-499, City"
+   122 = "Primary, 300-499, Suburb"
+   123 = "Primary, 300-499, Town"
+   124 = "Primary, 300-499, Rural"
+   131 = "Primary, 500-999, City"
+   132 = "Primary, 500-999, Suburb"
+   133 = "Primary, 500-999, Town"
+   134 = "Primary, 500-999, Rural"
+   141 = "Primary, 1,000+, City"
+   142 = "Primary, 1,000+, Suburb"
+   144 = "Primary, 1,000+, Rural"
+   211 = "Middle, <300, City"
+   212 = "Middle, <300, Suburb"
+   213 = "Middle, <300, Town"
+   214 = "Middle, <300, Rural"
+   221 = "Middle, 300-499, City"
+   222 = "Middle, 300-499, Suburb"
+   223 = "Middle, 300-499, Town"
+   224 = "Middle, 300-499, Rural"
+   231 = "Middle, 500-999, City"
+   232 = "Middle, 500-999, Suburb"
+   233 = "Middle, 500-999, Town"
+   234 = "Middle, 500-999, Rural"
+   241 = "Middle, 1,000+, City"
+   242 = "Middle, 1,000+, Suburb"
+   243 = "Middle, 1,000+, Town"
+   244 = "Middle, 1,000+, Rural"
+   311 = "High School, <300, City"
+   312 = "High School, <300, Suburb"
+   313 = "High School, <300, Town"
+   314 = "High School, <300, Rural"
+   321 = "High School, 300-499, City"
+   322 = "High School, 300-499, Suburb"
+   323 = "High School, 300-499, Town"
+   324 = "High School, 300-499, Rural"
+   331 = "High School, 500-999, City"
+   332 = "High School, 500-999, Suburb"
+   333 = "High School, 500-999, Town"
+   334 = "High School, 500-999, Rural"
+   341 = "High School, 1,000+, City"
+   342 = "High School, 1,000+, Suburb"
+   343 = "High School, 1,000+, Town"
+   344 = "High School, 1,000+, Rural"
+   411 = "Combined, <300, City"
+   412 = "Combined, <300, Suburb"
+   414 = "Combined, <300, Rural"
+   421 = "Combined, 300-499, City"
+   423 = "Combined, 300-499, Town"
+   424 = "Combined, 300-499, Rural"
+   431 = "Combined, 500-999, City"
+   432 = "Combined, 500-999, Suburb"
+   433 = "Combined, 500-999, Town"
+   434 = "Combined, 500-999, Rural"
+   441 = "Combined, 1,000+, City"
+   442 = "Combined, 1,000+, Suburb"
+   444 = "Combined, 1,000+, Rural"

@@ -1,0 +1,25 @@
+---
+title: "Final Project Data Memo"
+author: "Jie_Gu"
+date: "4/12/2019"
+output: html_document
+---
+
+# Data Source
+The dataset is provided by National Center for Education Statistics. The data is based on School Survey on Crime and Safety (SSOCS:2007-08). The link for the dataset is shown below.
+<br>
+https://nces.ed.gov/edat/variableSelect.aspx?guide=&hnt=&srch=&rnd=197&agrmnt=1&sessionid=e772055d-b69a-40b8-9796-ef2c7903fb66
+<br>
+This dataset is about the security regulations and the number of violations in more than 2,000 schools. By studying this dataset, I can know which measures can effectively reduce the occurrence of school accidents and thus protect students' safety. So it's practical to study this dataset.
+<br>
+This dataset is pretty large and comprehensive, so I won't join it with external datasets.
+
+# Why this Dataset 
+I'm interested in regression models and prefer predition problems. This dataset has a plenty of numerical and categorical variables that are suitable for regression. Additionally, this dataset has a large number of variables and observations so that I can use some methods to select the most important variables and conduct k-fold cross validation.
+<br>
+What's more, A larger dataset makes it easier to perform neural net analysis. I guess this dataset should be big enough.
+
+# Potential Data Issues
+1. The dataset is too large. It has 2,560 observations and more than 200 variables. It takes long time to read in the data, fit a full model and use methods to select the most important variables. Although I have deleted those obviously unimportant variables manually according to the Codebook, there remain over one hundred variables.
+<br><br>
+2. Some of the data come from a questionnaire. It means some values may not be so real, which will greatly affect the accuracy of my prediction. Additionally, some respondents have the option of not answering for some questions, which will lead to many missing values, affecting the building of the model.

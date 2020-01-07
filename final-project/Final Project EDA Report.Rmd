@@ -1,0 +1,54 @@
+---
+title: "Final Project EDA Report"
+author: "Jie_Gu"
+date: "5/10/2019"
+output: html_document
+---
+
+# Initial Overview of Data
+
+The dataset is provided by National Center for Education Statistics. The data is based on School Survey on Crime and Safety (SSOCS:2007-08). The link for the dataset is shown below.
+<br>
+https://nces.ed.gov/edat/variableSelect.aspx?guide=&hnt=&srch=&rnd=197&agrmnt=1&sessionid=e772055d-b69a-40b8-9796-ef2c7903fb66
+<br><br>
+This dataset is about the security regulations and the number of violations in more than 2,000 schools. By studying this dataset, maybe I can know which measures can effectively reduce the occurrence of school accidents and thus protect students' safety. It's interesting and important.
+<br><br>
+The raw dataset .csv file has 414 columns, but half of the features are not statistically significant (such as "Collapsed STRATUM code", "Imputation flag" and "Jackknife replicate"), so I directly delete those columns. Moreover, there are some features about the position of respondent, number of years respondent at the school, and the date questionnaire completed. I think they are the basic information of questionnaires and should have little effect on the response variables Therefore, I don't take them into consideration.
+<br><br>
+After preliminary selection, I leave 192 features as predictor variables. There are 2560 observations and no data is missing.
+
+# Essential Findings
+
+The first variable is school ID. It is an important variable because it is the unique school identifier. 
+<br>
+Then the next 139 variables from *c0110* to *c0450* are various kind of security policies whether the school take or not. They are all categorical variables. 
+<br>
+Most of them only have levels 1 and 2, which represent "yes" and "no". There are 37 variables have levels 1, 2, and -1, which represent "yes", "no", and "legitimate skip". 
+<br>
+The four variables from *c0196* to *c0202* are about parental participation, which have levels from 1 to 5, representing respectively "0-25%", "25-50%", "50-75%", "75-100%", and "the school doesn't offer".
+<br>
+The 13 variables from *c0280* to *c0304* are about effort limitation, which have levels 1, 2, and 3, representing "limits in major way", "limits in minor way" and "does not limit".
+<br>
+The 8 variables from *c0374* to *c0388* are about the frequency with which students make unethical behaviors such as race and gender. They have levels from 1 to 5, which represent the frequency from "happens daily" to "never happens".
+<br><br>
+The 6 variables from *c0540_r* to *c0558_r* are about numbers of full-time or part-time faculty. Although they are categorical variables, in my opinion, it's better to treat them as numerical variables because they are continuous.
+<br>
+Variables *c0560* and *c0562* are about crime level where students live and school located.
+<br>
+The last four categorical variables are the basic information about the school, including "percentage of students like Black/African American", "school grades offered", "school size", and "urbanicity". 
+<br><br>
+There are 16 numerical variables from *c0508* to *c0572*. They introduce the numerical information about the students and teachers.
+<br>
+There are 22 numerical variables from *crisis08* to *disrupt* about the number of all kinds of problem events recorded or repoted. In my opinion, they can be viewd as the response variables.
+<br><br>
+After explorations, I found this a very large dateset with a large amount of variables and most of them are categorical variables. Therefore, it's necessary to employ ```onehot()``` to transform these categorical variables.
+<br><br>
+What's more, it seems that there is a strong correlation between each kind of the variables mentioned above. I wonder if **Principal Component Analysis** can be used to extract some variables that are not related to each other.
+<br><br>
+I am very much looking forward to seeing the results of modeling between parental involvement and crime. Perhaps the results can give parents awakening, whether to participate in school activities.
+
+# Secondary Findings
+
+There are two variables *sec_ft* and *sec_pt*. In the codebook, they are introduced as total number of full-time or part-time security guards, SROs, or law enforcement and they belong to numerical variables. However, after filtering, I found they both have value "-1" and are obviously discrete, which conflicts with the codebook, so there might be somen problems with these two variables. Since that there are already some similar variables like numbers of all kinds of full-time or part-time faculty, I decide to discard these two variables to reduce unnecessary trouble.
+<br><br>
+Also, I found that some of the variables I view as the response variables are very similar. I wonder if they can be merged into one or a few variables to use the **Neural Network**.
