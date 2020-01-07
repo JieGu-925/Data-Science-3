@@ -1,0 +1,250 @@
+
+#### Load Packages
+
+
+# Loading package(s)
+library(e1071)
+library(tidyverse)
+library(pROC)
+library(randomForest)
+library(xgboost)
+
+#### Read in data
+
+wildfires_train <- read_csv("data/wildfires_train.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")),
+         wlf = factor(wlf, levels = c("0", "1")))
+wildfires_test <- read_csv("data/wildfires_test.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")),
+         wlf = factor(wlf, levels = c("0", "1")))
+wildfires <- tibble(train = wildfires_train %>% list(),
+                    test = wildfires_test %>% list())
+
+  
+  ## Exercise 1
+ 
+#### Linear kernel
+
+# cross validation to determine cost tuning parameter
+set.seed(1)
+linear_cv <- wildfires %>%
+  mutate(train_cv = map(.x = train, 
+                        .f = function(x){ 
+                          return(tune(svm, wlf ~., data = x, kernel = "linear",
+                                      ranges = list(cost = c(0.01, 0.1, 0.5, 1, 5, 8, 10)))
+                          )
+                        }))
+# find the best cost
+linear_cost <- linear_cv$train_cv[[1]]$best.parameters
+
+# use best cost to build model
+svm_linear_model <- wildfires %>%
+  mutate(model_fit = map(.x = train, # fit the model
+                         .f = function(x) svm(wlf ~ ., data = x,  kernel = "linear", cost = linear_cost,
+                                              probability = TRUE)), 
+         train_pred = map2(model_fit, train, 
+                           ~ predict(.x, .y, probability = TRUE)), # get predictions on train set
+         test_pred = map2(model_fit, test, 
+                          ~ predict(.x, .y, probability = TRUE)), # get predictions on test set
+         confusion_matrix = map2(.x = test, .y = test_pred,  # get confusion matrix
+                                 .f = function(x, y) caret::confusionMatrix(x$wlf, y)))
+
+svm_linear_model$confusion_matrix[[1]]
+
+
+#### Radial kernel
+
+# cross validation to determine cost & gamma
+set.seed(1)
+radial_cv <- wildfires %>%
+  mutate(train_cv = map(.x = train, 
+                        .f = function(x) tune(svm, wlf ~ ., data = x, kernel = "radial", 
+                                              ranges = list(cost = c(0.01, 0.1, 0.5, 1, 5, 8, 10), 
+                                                            gamma = c(0.5, 1, 2, 3, 4)))))
+# find the bset tuning parameters
+radial_cost <- radial_cv$train_cv[[1]]$best.parameters[1]
+radial_gamma <- radial_cv$train_cv[[1]]$best.parameters[2]
+
+# use best parameters to build model
+svm_radial_model <- wildfires %>%
+  mutate(model_fit = map(.x = train, 
+                         .f = function(x) svm(wlf ~ ., data = x, kernel = "radial", cost = radial_cost, 
+                                              gamma = radial_gamma, probability = TRUE)),
+         train_pred = map2(model_fit, train, ~ predict(.x, .y, probability = TRUE)), #train predictions
+         test_pred = map2(model_fit, test, ~ predict(.x, .y, probability = TRUE)), # test predcitions
+         confusion_matrix = map2(.x = test, .y = test_pred, # test confusion matrix
+                                 .f = function(x, y) caret::confusionMatrix(x$wlf, y)))
+
+svm_radial_model$confusion_matrix[[1]]
+
+
+#### Polynomial kernel
+
+# cross validation to determine cost & degree
+set.seed(1)
+polynomial_cv <- wildfires %>%
+  mutate(train_cv = map(.x = train, 
+                        .f = function(x) tune(svm, wlf ~ ., data = x, kernel = "polynomial", 
+                                              ranges = list(cost = c(0.01, 0.1, 0.5, 1, 5, 8, 10),
+                                                            gamma = c(0.001, 0.1 ,0.5, 1, 2, 3, 4)))))
+# find the best tuning parameters
+polynomial_cost <- polynomial_cv$train_cv[[1]]$best.parameters[1]
+polynomial_gamma <- polynomial_cv$train_cv[[1]]$best.parameters[2]
+
+# use best parameters to build model
+svm_polynominal_model <- wildfires %>%
+  mutate(model_fit = map(.x = train, 
+                         .f = function(x) svm(wlf ~ ., data = x, kernel = "polynomial", 
+                                              cost = polynomial_cost,
+                                              gamma = polynomial_gamma, probability = TRUE)),
+         train_pred = map2(model_fit, train, ~ predict(.x, .y, probability = TRUE)), # train predictions
+         test_pred = map2(model_fit, test, ~ predict(.x, .y, probability = TRUE)), # test predcitions
+         confusion_matrix = map2(.x = test, .y = test_pred, # test confusion matrix
+                                 .f = function(x, y) caret::confusionMatrix(x$wlf, y)))
+
+svm_polynominal_model$confusion_matrix[[1]]
+
+
+#### Combine test error
+
+# classifier from the CART lab
+set.seed(1)
+wildfire_train <- read_csv("data/wildfires_train.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")))
+wildfire_test <- read_csv("data/wildfires_test.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")))
+wild <- wildfires_train %>%
+  bind_rows(wildfires_test)
+wildfire <- tibble(train = wildfire_train %>% list(),
+                   test = wildfire_test %>% list())
+
+# mean test error for random forests, bagging and logistic regression
+test_err <- function(mod_fit, df){
+  df <- as_tibble(df)
+  prob <- predict(mod_fit, newdata = df, type = "response")
+  pred <- factor(if_else(prob > 0.5, 1, 0))
+  return(mean(df$wlf != pred))
+}
+fitRF <- function(data, mtry){
+  return(randomForest(wlf ~ ., data = data, mtry = mtry))
+}
+wlf_glm <- function(data){
+  glm(wlf ~ ., data = data, family = binomial)
+}
+
+error_part1 <- wildfire %>%
+  mutate(RandomForest = map2(train, 7, fitRF),
+         Bagging = map2(train, 16, fitRF),
+         Logistic = map(train, wlf_glm)) %>%
+  gather(key = "model", value = "fit", RandomForest, Bagging, Logistic) %>%
+  mutate(test_error = map2_dbl(fit, test, test_err))%>%
+  select(model, test_error)
+
+# mean test error for boosting
+fitBoosting2 <- function(dat){
+  dat = as_tibble(dat)
+  mat = wild %>% dplyr::select(- wlf) %>% # encode on full boston df
+    onehot::onehot() %>% # use onehot to encode variables
+    predict(dat) # get OHE matrix
+  return(xgb.DMatrix(data = mat, label = dat$wlf))
+}
+fit_wlf <- function(train_data, learning_rate, depth, nrounds, silent = 1){
+  return(xgb.train(params = list(eta = learning_rate, 
+                                 max_depth = depth, 
+                                 silent = silent), 
+                   train_data, 
+                   nrounds = nrounds)
+  )
+}
+xg_mse <- function(model, test){
+  prob = predict(model, test, type = "response")
+  vals = getinfo(test, "label")
+  pred <- factor(if_else(prob > 0.5, 1, 0))
+  mean(vals != pred)
+}
+error_part2 <- wildfire %>%
+  mutate(train_dg = map(train, fitBoosting2),
+         test_dg = map(test, fitBoosting2))%>%
+  mutate(Boosting = map2(train_dg, 0.001, fit_wlf, depth = 10, nrounds = 5000)) %>%
+  mutate(test_error = map2_dbl(Boosting, test_dg, xg_mse)) %>%
+  gather(key = "model", value = "fit", Boosting) %>%
+  select(model, test_error)
+
+# test error for SVM
+error_linear <- svm_linear_model %>%
+  mutate(Linear_svm = model_fit,
+         test_error = 1 - confusion_matrix[[1]]$overall[[1]]) %>%
+  gather(key = "model", value = "fit", Linear_svm) %>%
+  select(model, test_error)
+error_radial <- svm_radial_model %>%
+  mutate(Radial_svm = model_fit,
+         test_error = 1 - confusion_matrix[[1]]$overall[[1]]) %>%
+  gather(key = "model", value = "fit", Radial_svm) %>%
+  select(model, test_error)
+error_polynomial <- svm_radial_model %>%
+  mutate(Polynomial_svm = model_fit,
+         test_error = 1 - confusion_matrix[[1]]$overall[[1]]) %>%
+  gather(key = "model", value = "fit", Polynomial_svm) %>%
+  select(model, test_error)
+
+# display all candidate classifier
+error_part1 %>%
+  bind_rows(error_part2,
+            error_linear,
+            error_radial,
+            error_polynomial)
+
+
+## Challenge (Not Mandatory)
+
+# helper functions
+get_probs <- function(pred){
+  attributes(pred)$probabilities %>%
+    data.frame() %>%
+    select(X1) %>% 
+    as_vector() %>%
+    return()
+}
+
+roc_svm <- function(data, pred){
+  pROC::roc(data$wlf, pred)
+}
+
+Linear_roc <- svm_linear_model %>% 
+  mutate(train_pred_prob = map(train_pred, get_probs), 
+         train_roc = map2(train, train_pred_prob, roc_svm), 
+         train_roc_plot = map(train_roc, ggroc),
+         test_pred_prob = map(test_pred, get_probs), 
+         test_roc = map2(test, test_pred_prob, roc_svm), 
+         test_roc_plot = map(test_roc, ggroc))
+Radial_roc <- svm_radial_model %>% 
+  mutate(train_pred_prob = map(train_pred, get_probs), 
+         train_roc = map2(train, train_pred_prob, roc_svm), 
+         train_roc_plot = map(train_roc, ggroc),
+         test_pred_prob = map(test_pred, get_probs), 
+         test_roc = map2(test, test_pred_prob, roc_svm), 
+         test_roc_plot = map(test_roc, ggroc))
+Polynomial_roc <- svm_polynominal_model %>%
+  mutate(train_pred_prob = map(train_pred, get_probs), 
+         train_roc = map2(train, train_pred_prob, roc_svm), 
+         train_roc_plot = map(train_roc, ggroc),
+         test_pred_prob = map(test_pred, get_probs), 
+         test_roc = map2(test, test_pred_prob, roc_svm), 
+         test_roc_plot = map(test_roc, ggroc))
+
+Linear_roc %>%
+  pluck("train_roc_plot", 1) 
+Linear_roc %>%
+  pluck("test_roc_plot", 1)
+Radial_roc %>%
+  pluck("train_roc_plot", 1) 
+Radial_roc %>%
+  pluck("test_roc_plot", 1)
+Polynomial_roc %>%
+  pluck("train_roc_plot", 1) 
+Polynomial_roc %>%
+  pluck("test_roc_plot", 1)

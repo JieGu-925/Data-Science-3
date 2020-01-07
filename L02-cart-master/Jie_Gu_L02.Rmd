@@ -1,0 +1,332 @@
+---
+title: "CART Lab II (L02)"
+author: "Data Science III (STAT 301-3)"
+date: "April 14th, 2019"
+output: html_document
+---
+
+# Overview
+
+The main goal of this lab is to continue practicing the application of tree-based methods (i.e., classification and regression trees).
+
+# Datasets 
+
+We have split the `wildfires.csv` dataset into a training dataset (`wildfires_train.csv`) and test dataset (`wildfires_test.csv`). They are contained in the **data** subdirectory along with a codebook.  
+
+# Exercises
+
+Please complete the following exercises. Be sure your solutions are clearly indicated and that the document is neatly formatted.
+
+#### Load Packages
+
+```{r, message = FALSE}
+# Loading package(s)
+library(modelr)
+library(tidyverse)
+library(randomForest)
+library(xgboost)
+library(glmnet) 
+library(glmnetUtils)
+```
+
+#### Read in data
+```{r, message = FALSE}
+# Read in data
+wildfire_train <- read_csv("data/wildfires_train.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")))
+wildfire_test <- read_csv("data/wildfires_test.csv") %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")))
+
+set.seed(1)
+wild_validation <- wildfire_train %>%
+  crossv_kfold(10, id = "fold")
+```
+
+#### Exercise 1 
+The total area burned by a wildfire is of great concern to government planners. This is captured by the variable `burned` in the `wildfires` dataset, which is a continuous variable. In this exercise, you will train models to predict `burned` using other variables in the data (**exclude `wlf` as a predictor** ). Train the following candidate models:
+
+* boosting
+* bagging
+* random forests 
+* linear regression
+* ridge regression 
+
+Compare the estimated test errors for each model to determine which is best. 
+
+##### Bagging & Random Forest
+```{r}
+set.seed(1)
+# create a tibble of mtry values
+model_def <- tibble(mtry = 1:(ncol(wildfire_train) - 2))
+wild_rf <- wild_validation %>% 
+  crossing(model_def)
+# returns a random forest where burned is the outcome
+fitRF <- function(data, mtry){
+  data = as_tibble(data)
+  return(randomForest(burned ~ . - wlf, data = data, mtry = mtry, importance = TRUE))
+}
+wild_rf <- wild_rf %>%
+  mutate(model_fit = map2(train, mtry, fitRF),
+         test_mse = map2_dbl(model_fit, test, mse))
+# the best mtry for random forest
+wild_rf_err <- wild_rf %>%
+  group_by(mtry) %>%
+  summarise(mean_mse = mean(test_mse)) %>% 
+  arrange(mean_mse)
+rf_tune <- wild_rf_err %>%
+  pluck("mtry", 1)
+```
+##### Boosting
+```{r}
+set.seed(1)
+# return a boosting model where burned is the outcome
+fitBoosting <- function(dat){
+  dat = as_tibble(dat)
+  mat = wildfire_train %>% dplyr::select(-c(burned, wlf)) %>% # encode on full df
+    onehot::onehot() %>% # use onehot to encode variables
+    predict(dat) # get OHE matrix
+    return(xgb.DMatrix(data = mat, label = dat$burned))
+}
+# helper function to fit model
+fit_wild <- function(train_data, learning_rate, depth, nrounds, silent = 1){
+  return(
+    xgb.train(params = list(eta = learning_rate, max_depth = depth, silent = silent),  
+              train_data,  nrounds = nrounds) )
+}
+# function to get mse
+xg_mse <- function(model, test){
+  preds = predict(model, test)
+  vals = getinfo(test, "label")
+  return(mean((preds - vals)^2))
+}
+  
+wild_boosting_data <- wild_validation %>%
+                  mutate(train_dg = map(train, fitBoosting), 
+                         test_dg = map(test, fitBoosting)) %>%
+  dplyr::select(train_dg, test_dg)
+
+wild_boosting <- wild_boosting_data %>%
+  crossing(tibble(learning_rate = c(0.001, 0.005, 0.01, 0.05, 0.1, 0.5)))
+
+wild_boosting <- wild_boosting %>%
+  mutate(model_fit = map2(train_dg, learning_rate, fit_wild, depth = 10, nrounds = 5000), 
+         test_mse = map2_dbl(model_fit, test_dg, xg_mse))
+
+# 0.01 is the best learning rate for boosting
+wild_boosting_err <- wild_boosting %>%
+  group_by(learning_rate) %>%
+  summarise(mean_mse = mean(test_mse)) %>%
+  arrange(mean_mse)
+boosting_tune <- wild_boosting_err %>%
+  pluck("learning_rate", 1)
+```
+##### Ridge
+```{r}
+# lambda grid to search -- use for ridge regression
+lambda_grid <- 10^seq(-3, 3, length = 1000)
+# ridge regression
+ridge_cv <- wildfire_train %>% 
+  cv.glmnet(formula = burned ~ . - wlf, 
+            data = ., alpha = 0, nfolds = 10, lambda = lambda_grid)
+
+# ridge's best lambdas
+ridge_lambda_min <- ridge_cv$lambda.min
+```
+##### Linear Regression
+```{r}
+wild_lr <- function(data){
+    lm(burned ~ . - wlf, data = data)
+}
+```
+##### Compare mse to find the best model
+```{r}
+wildfire <- tibble(wild_train = wildfire_train %>% list(),
+                   wild_test = wildfire_test %>% list())
+# mse for random forests, bagging and linear regression
+mse_part1 <- wildfire %>%
+  mutate(RandomForest = map2(wild_train, rf_tune, fitRF),
+         Bagging = map2(wild_train, 15, fitRF),
+         Linear = map(wild_train, wild_lr)) %>%
+  gather(key = "model", value = "fit", RandomForest, Bagging, Linear) %>%
+  mutate(test_mse = map2_dbl(fit, wild_test, mse))%>%
+  select(model, test_mse)
+# mse for boosting
+wild <- wildfire_train %>%
+  bind_rows(wildfire_test)
+
+fitBoosting2 <- function(dat){
+  dat = as_tibble(dat)
+  mat = wild %>% dplyr::select(-c(burned, wlf)) %>% # encode on full df
+    onehot::onehot() %>% # use onehot to encode variables
+    predict(dat) # get OHE matrix
+    return(xgb.DMatrix(data = mat, label = dat$burned))
+}
+
+mse_boosting <- wildfire %>%
+  mutate(train_dg = map(wild_train, fitBoosting2),
+         test_dg = map(wild_test, fitBoosting2)) %>%
+  mutate(Boosting = map2(train_dg, boosting_tune, fit_wild, depth = 10, nrounds = 5000),
+         test_mse = map2_dbl(Boosting, test_dg, xg_mse)) %>%
+  gather(key = "model", value = "fit", Boosting) %>%
+  select(model, test_mse)
+# mse for ridge
+mse_ridge <- wildfire%>%
+  mutate(Ridge = map(wild_train, ~glmnet(burned ~ .- wlf, data = .x, alpha = 0, lambda = ridge_lambda_min))) %>%
+  mutate(pred = map2(Ridge, wild_test, predict),
+         test_mse = map2_dbl(wild_test, pred, ~ mean((.x$burned - .y)^2))) %>%
+  gather(key = "model", value = "fit", Ridge) %>%
+  select(model, test_mse)
+
+mse_part1 %>%
+  bind_rows(mse_boosting) %>%
+  bind_rows(mse_ridge) %>%
+  arrange(test_mse)
+```
+Linear model has the smallest mse. It should be the best model.
+<br><br>
+
+#### Exercise 2
+Located in the northeast of the wilderness area is a wildlife protection zone. It is home to several rare and endangered species, and thus conservationists and park rangers are very interested in whether a given wildfire is likely to reach it. In the data, fires that reach the wildlife protection zone are denoted by the indicator variable `wlf`. 
+In this exercise, you will train models to predict `wlf` using other variables in the data (**there is no exclusion on which varibles to use as predictors**). Train the following candidate models:
+
+* boosting
+* bagging 
+* random forests
+* logistic regression
+* ridge logistic regression
+     
+Compare the estimated test errors for each model to determine which is best. 
+
+```{r}
+# function to calculate mean test error
+test_err <- function(mod_fit, df){
+  df <- as_tibble(df)
+  prob <- predict(mod_fit, newdata = df, type = "response")
+  pred <- factor(if_else(prob > 0.5, 1, 0))
+  return(mean(df$wlf != pred))
+}
+```
+
+##### Bagging & Random Forest
+```{r, warning = FALSE}
+set.seed(1)
+# create a tibble of mtry values
+wlf_rf <- wild_validation %>% 
+  crossing(tibble(mtry = 1:(ncol(wildfire_train) - 1)))
+# returns a random forest where wlf is the outcome
+fitRF <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(wlf ~ ., data = data, mtry = mtry))
+}
+wlf_rf <- wlf_rf %>%
+  mutate(model_fit = map2(train, mtry, fitRF),
+         test_merr = map2_dbl(model_fit, test, test_err)) 
+
+# the best mtry for random forest
+wlf_rf_err <- wlf_rf %>%
+  group_by(mtry) %>%
+  summarise(mean_merr = mean(test_merr)) %>% 
+  arrange(mean_merr)
+rf_tune2 <- wlf_rf_err %>%
+  pluck("mtry", 1)
+```
+##### Boosting
+```{r}
+set.seed(1)
+# return a boosting model where wlf is the outcome
+fitBoosting <- function(dat){
+  dat = as_tibble(dat)
+  mat = wildfire_train %>% dplyr::select(- wlf) %>% # encode on full boston df
+    onehot::onehot() %>% # use onehot to encode variables
+    predict(dat) # get OHE matrix
+  return(xgb.DMatrix(data = mat, label = dat$wlf))
+}
+
+fit_wlf <- function(train_data, learning_rate, depth, nrounds, silent = 1){
+  return(xgb.train(params = list(eta = learning_rate, 
+                          max_depth = depth, 
+                          silent = silent), 
+            train_data, 
+            nrounds = nrounds)
+  )
+}
+
+xg_mse <- function(model, test){
+  prob = predict(model, test, type = "response")
+  vals = getinfo(test, "label")
+  pred <- factor(if_else(prob > 0.5, 1, 0))
+  mean(vals != pred)
+}
+
+wlf_boosting_data <- wild_validation %>%
+                  mutate(train_dg = map(train, fitBoosting), 
+                         test_dg = map(test, fitBoosting))
+
+wlf_boosting <- wlf_boosting_data %>%
+  crossing(tibble(learning_rate = seq(0.0001, 0.1, length = 100)))
+
+wlf_boosting <- wlf_boosting %>%
+  mutate(model_fit = map2(train_dg, learning_rate, fit_wlf, depth = 10, nrounds = 5000), 
+         test_merr = map2_dbl(model_fit, test_dg, xg_mse))
+# 0.001 is the best learning rate
+# the best learning rate for boosting
+wlf_boosting_err <- wlf_boosting %>%
+  group_by(learning_rate) %>%
+  summarise(mean_merr = mean(test_merr)) %>%
+  arrange(mean_merr)
+boosting_tune2 <- wlf_boosting_err %>%
+  pluck("learning_rate", 1)
+```
+
+##### Ridge
+```{r}
+# ridge regression
+ridge_cv <- wildfire_train %>% 
+  cv.glmnet(formula = wlf ~ ., data = ., alpha = 0, nfolds = 10, lambda = lambda_grid)
+
+# ridge's best lambdas
+ridge_lambda_min <- ridge_cv$lambda.min
+```
+
+##### Logistic Regression
+```{r}
+wlf_glm <- function(data){
+    glm(wlf ~ ., data = data, family = binomial)
+}
+```
+
+##### Compare mean test error to find the best model
+```{r, warning = FALSE}
+set.seed(1)
+# mean test error for random forests, bagging, logistic regression and ridge regression
+merr_part1 <- wildfire %>%
+  mutate(RandomForest = map2(wild_train, rf_tune2, fitRF),
+         Bagging = map2(wild_train, 16, fitRF),
+         Logistic = map(wild_train, wlf_glm),
+         Ridge = map(wild_train, ~glmnet(wlf ~ ., data = .x, alpha = 0, lambda = ridge_lambda_min))) %>%
+  gather(key = "model", value = "fit", RandomForest, Bagging, Logistic, Ridge) %>%
+  mutate(test_merr = map2_dbl(fit, wild_test, test_err))%>%
+  select(model, test_merr)
+# mean test error for boosting
+fitBoosting2 <- function(dat){
+  dat = as_tibble(dat)
+  mat = wild %>% dplyr::select(- wlf) %>% # encode on full boston df
+    onehot::onehot() %>% # use onehot to encode variables
+    predict(dat) # get OHE matrix
+  return(xgb.DMatrix(data = mat, label = dat$wlf))
+}
+merr_boosting <- wildfire %>%
+  mutate(train_dg = map(wild_train, fitBoosting2),
+         test_dg = map(wild_test, fitBoosting2)) %>%
+  mutate(Boosting = map2(train_dg, boosting_tune2, fit_wlf, depth = 10, nrounds = 5000)) %>%
+  mutate(test_merr = map2_dbl(Boosting, test_dg, xg_mse)) %>%
+  gather(key = "model", value = "fit", Boosting) %>%
+  select(model, test_merr)
+
+merr_part1 %>%
+  bind_rows(merr_boosting) %>%
+  arrange(test_merr)
+```
+Bagging has the smallest mean test error. It should be the best model.

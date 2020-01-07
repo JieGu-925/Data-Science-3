@@ -1,0 +1,778 @@
+name,accept_rate,outstate,enroll,grad_rate,private,is_elite
+Abilene Christian University,0.7421686746987952,7440,721,60,Yes,Not Elite
+Adelphi University,0.8801463860933212,12280,512,56,Yes,Not Elite
+Adrian College,0.7682072829131653,11250,336,54,Yes,Not Elite
+Agnes Scott College,0.8369304556354916,12960,137,59,Yes,Elite
+Alaska Pacific University,0.7564766839378239,7560,55,15,Yes,Not Elite
+Albertson College,0.8160136286201022,13500,158,55,Yes,Not Elite
+Albertus Magnus College,0.9631728045325779,13290,103,63,Yes,Not Elite
+Albion College,0.9057398630858347,13868,489,73,Yes,Not Elite
+Albright College,0.8082851637764933,15595,227,80,Yes,Not Elite
+Alderson-Broaddus College,0.8556701030927835,10468,172,52,Yes,Not Elite
+Alfred University,0.8227482678983834,16548,472,73,Yes,Not Elite
+Allegheny College,0.7164404223227753,17080,484,76,Yes,Not Elite
+Allentown Coll. of St. Francis de Sales,0.6615776081424937,9690,290,74,Yes,Not Elite
+Alma College,0.8524072612470402,12572,385,68,Yes,Not Elite
+Alverno College,0.6336032388663968,8352,157,55,Yes,Not Elite
+American International College,0.7697183098591549,8700,220,69,Yes,Not Elite
+Amherst College,0.23059042305904232,19760,418,100,Yes,Elite
+Anderson University,0.7467105263157895,10100,423,59,Yes,Not Elite
+Andrews University,0.6230088495575221,9996,322,46,Yes,Not Elite
+Angelo State University,0.5652542372881356,5130,1016,34,No,Not Elite
+Antioch University,0.9270687237026648,15476,252,48,Yes,Not Elite
+Appalachian State University,0.6377683577191303,6806,1910,70,No,Not Elite
+Aquinas College,0.8336025848142165,11208,219,65,Yes,Not Elite
+Arizona State University Main campus,0.8047466625029276,7434,3761,48,No,Not Elite
+Arkansas College (Lyon College),0.4717514124293785,8644,166,54,Yes,Not Elite
+Arkansas Tech University,0.9971164936562861,3460,951,48,No,Not Elite
+Assumption College,0.7962529274004684,12e3,491,88,Yes,Not Elite
+Auburn University-Main Campus,0.8997085320614733,6300,3070,69,No,Not Elite
+Augsburg College,0.7749244712990937,11902,257,58,Yes,Not Elite
+Augustana College IL,0.8823842469398616,13353,497,71,Yes,Not Elite
+Augustana College,0.9526938239159002,10990,306,69,Yes,Not Elite
+Austin College,0.8417721518987342,11280,295,71,Yes,Not Elite
+Averett College,0.886762360446571,9925,172,48,Yes,Not Elite
+Baker University,0.8023255813953488,8620,206,65,Yes,Not Elite
+Baldwin-Wallace College,0.808284023668639,10995,662,85,Yes,Not Elite
+Barat College,0.735632183908046,9690,111,71,Yes,Not Elite
+Bard College,0.4387434554973822,19264,285,79,Yes,Not Elite
+Barnard College,0.561698717948718,17926,531,91,Yes,Elite
+Barry University,0.7919191919191919,11290,279,72,Yes,Not Elite
+Baylor University,0.8804938271604938,6450,2367,72,Yes,Not Elite
+Beaver College,0.7308684436801376,12850,348,73,Yes,Not Elite
+Bellarmine College,0.8760842627013631,8840,308,84,Yes,Not Elite
+Belmont Abbey College,0.7816455696202531,9e3,129,52,Yes,Not Elite
+Belmont University,0.7983606557377049,7800,481,49,Yes,Not Elite
+Beloit College,0.6992424242424242,16304,284,69,Yes,Not Elite
+Bemidji State University,0.7259933774834437,4425,546,46,No,Not Elite
+Benedictine College,0.9810126582278481,9550,222,58,Yes,Not Elite
+Bennington College,0.63005780346820806,21700,114,55,Yes,Not Elite
+Bentley College,0.6722446624350836,13800,640,82,Yes,Not Elite
+Berry College,0.6571582346609257,8050,480,63,Yes,Not Elite
+Bethany College,0.929384965831435,8740,200,48,Yes,Not Elite
+Bethel College KS,0.9108910891089109,8540,122,56,Yes,Not Elite
+Bethel College,0.7649402390438247,6200,104,35,Yes,Not Elite
+Bethune Cookman College,0.6986634264884569,5188,542,58,Yes,Not Elite
+Birmingham-Southern College,0.7304347826086957,11660,287,72,Yes,Elite
+Blackburn College,0.672,6500,156,51,Yes,Not Elite
+Bloomsburg Univ. of Pennsylvania,0.4470692455337369,7844,1025,75,No,Not Elite
+Bluefield College,0.9496021220159151,7150,181,53,Yes,Not Elite
+Bluffton College,0.7427745664739884,9900,209,58,Yes,Not Elite
+Boston University,0.6441660063391442,18420,3810,72,Yes,Not Elite
+Bowdoin College,0.3036352800953516,19030,418,96,Yes,Elite
+Bowling Green State University,0.7926710625878284,7452,3076,67,No,Not Elite
+Bradford College,0.744920993227991,14080,151,46,Yes,Not Elite
+Bradley University,0.9062914786302098,10870,1061,85,Yes,Not Elite
+Brandeis University,0.65527950310559,19380,740,84,Yes,Not Elite
+Brenau University,0.7465940054495913,9592,158,49,Yes,Not Elite
+Brewton-Parker College,0.8551532033426184,4371,1202,18,Yes,Not Elite
+Briar Cliff College,0.8954081632653061,10260,155,58,Yes,Not Elite
+Bridgewater College,0.8031026252983293,10265,292,82,Yes,Not Elite
+Brigham Young University at Provo,0.73346911065852,2340,4615,33,Yes,Not Elite
+Brown University,0.2573494358811378,19528,1462,97,Yes,Elite
+Bryn Mawr College,0.552901023890785,18165,313,89,Yes,Elite
+Bucknell University,0.5823152107513745,18550,862,93,Yes,Not Elite
+Buena Vista College,0.8,13306,285,78,Yes,Not Elite
+Butler University,0.8624047417442845,13130,700,83,Yes,Not Elite
+Cabrini College,0.8247078464106845,10518,224,71,Yes,Not Elite
+Caldwell College,0.5974282888229476,8900,213,55,Yes,Not Elite
+California Lutheran University,0.43872113676731794,12950,247,60,Yes,Not Elite
+California Polytechnic-San Luis,0.4886698246063244,7380,1650,59,No,Not Elite
+California State University at Fresno,0.7255506607929515,7706,1483,61,No,Not Elite
+Calvin College,0.8475336322869955,10230,913,81,Yes,Not Elite
+Campbell University,0.6415908001916627,7550,657,63,Yes,Not Elite
+Campbellsville College,0.6922169811320755,6060,298,49,Yes,Not Elite
+Canisius College,0.768664563617245,10750,753,64,Yes,Not Elite
+Capital University,0.7910704064109902,13050,449,83,Yes,Not Elite
+Capitol College,0.9,8400,35,52,Yes,Not Elite
+Carleton College,0.5861172976985894,19292,489,91,Yes,Elite
+Carnegie Mellon University,0.5958982584784601,17900,1191,74,Yes,Elite
+Carroll College,0.8543103448275862,12200,352,79,Yes,Not Elite
+Carson-Newman College,0.8677007299270073,8150,464,67,Yes,Not Elite
+Carthage College,0.8830445544554455,13125,434,62,Yes,Not Elite
+Case Western Reserve University,0.8140314676296105,15700,713,67,Yes,Elite
+Castleton State College,0.7478122513922036,7656,363,79,No,Not Elite
+Catawba College,0.8125577100646353,9270,291,55,Yes,Not Elite
+Catholic University of America,0.8352337514253135,13712,505,75,Yes,Not Elite
+Cazenovia College,0.8923836755913699,9384,527,118,Yes,Not Elite
+Cedar Crest College,0.7822164948453608,14340,198,74,Yes,Not Elite
+Cedarville College,0.8339709257842387,7344,616,64,Yes,Not Elite
+Centenary College,0.8455284552845529,11400,90,24,Yes,Not Elite
+Centenary College of Louisiana,0.8767676767676768,8950,210,66,Yes,Not Elite
+Center for Creative Studies,0.6589018302828619,11230,203,47,Yes,Not Elite
+Central College,0.8674980514419329,10938,401,67,Yes,Not Elite
+Central Connecticut State University,0.6089466089466089,5962,902,49,No,Not Elite
+Central Missouri State University,0.8760948515274514,4620,1436,50,No,Not Elite
+Central Washington University,0.7220825852782765,7242,1007,51,No,Not Elite
+Central Wesleyan College,0.8390804597701149,8300,88,58,Yes,Not Elite
+Centre College,0.876604146100691,11850,288,74,Yes,Elite
+Chapman University,0.8039624608967675,16624,351,47,Yes,Not Elite
+Chatham College,0.9292452830188679,13500,91,52,Yes,Not Elite
+Chestnut Hill College,0.7426900584795322,10335,126,73,Yes,Not Elite
+Christendom College,0.8888888888888888,8730,51,58,Yes,Not Elite
+Christian Brothers University,0.5909090909090909,9300,224,63,Yes,Not Elite
+Christopher Newport University,0.8674971687429218,7860,428,48,No,Not Elite
+Claflin College,0.5827759197324415,4412,499,21,Yes,Not Elite
+Claremont McKenna College,0.41236559139784945,17e3,227,87,Yes,Elite
+Clark University,0.713197090405265,17500,457,79,Yes,Not Elite
+Clarke College,0.7391304347826086,10740,167,74,Yes,Not Elite
+Clarkson University,0.8983440662373505,15960,557,77,Yes,Not Elite
+Clemson University,0.651828890266584,8116,2301,73,No,Not Elite
+Clinch Valley Coll. of  the Univ. of Virginia,0.8142235123367199,7168,250,46,No,Not Elite
+Coe College,0.7375745526838966,13925,275,67,Yes,Not Elite
+Coker College,0.7483443708609272,9888,295,75,Yes,Not Elite
+Colby College,0.4631320224719101,18930,456,91,Yes,Elite
+Colgate University,0.5131795716639209,19510,727,93,Yes,Not Elite
+College Misericordia,0.6201117318435754,10860,317,96,Yes,Not Elite
+College of Charleston,0.6580050293378038,6120,1265,51,No,Not Elite
+College of Mount St. Joseph,0.7769423558897243,9800,238,100,Yes,Not Elite
+College of Mount St. Vincent,0.6849894291754757,11790,177,83,Yes,Not Elite
+College of Notre Dame,0.7674418604651163,12600,97,43,Yes,Not Elite
+College of Notre Dame of Maryland,0.7789934354485777,11180,177,75,Yes,Not Elite
+College of Saint Benedict,0.9211087420042644,12247,511,72,Yes,Not Elite
+College of Saint Catherine,0.8043052837573386,12224,186,77,Yes,Not Elite
+College of Saint Elizabeth,0.8085585585585585,10900,122,78,Yes,Not Elite
+College of Saint Rose,0.6754832146490336,9990,249,64,Yes,Not Elite
+College of Santa Fe,0.8186813186813187,11138,189,80,Yes,Not Elite
+College of St. Joseph,0.8368794326241135,8300,55,76,Yes,Not Elite
+College of St. Scholastica,0.8869047619047619,11844,278,72,Yes,Not Elite
+College of the Holy Cross,0.5647962591850367,18e3,659,95,Yes,Elite
+College of William and Mary,0.4364198398201489,11720,1217,93,No,Elite
+College of Wooster,0.8966666666666666,16240,553,69,Yes,Not Elite
+Colorado College,0.49173682569379484,17142,490,84,Yes,Elite
+Colorado State University,0.6659632833931209,8412,2194,59,No,Not Elite
+Columbia College MO,0.5031847133757962,8294,132,37,Yes,Not Elite
+Columbia College,0.8331071913161465,10425,242,76,Yes,Not Elite
+Columbia University,0.28567199526346954,18624,871,99,Yes,Elite
+Concordia College at St. Paul,0.9466192170818505,10500,139,45,Yes,Not Elite
+Concordia Lutheran College,0.9310344827586207,6900,106,42,Yes,Not Elite
+Concordia University CA,0.7223837209302325,10800,144,55,Yes,Not Elite
+Concordia University,0.7632575757575758,9216,186,75,Yes,Not Elite
+Connecticut College,0.5093904448105436,18740,438,91,Yes,Not Elite
+Converse College,0.925,12050,149,75,Yes,Not Elite
+Cornell College,0.864109232769831,15248,383,64,Yes,Not Elite
+Creighton University,0.9558476575665655,10628,876,85,Yes,Not Elite
+Culver-Stockton College,0.7043147208121827,8e3,274,51,Yes,Not Elite
+Cumberland College,0.792964824120603,6230,398,63,Yes,Not Elite
+D'Youville College,0.7147806004618937,8920,157,46,Yes,Not Elite
+Dana College,0.9563492063492064,9130,185,54,Yes,Not Elite
+Daniel Webster College,0.8683760683760684,12292,153,72,Yes,Not Elite
+Dartmouth College,0.2647024572027483,19545,1087,98,Yes,Elite
+Davidson College,0.4028655710071639,17295,452,94,Yes,Elite
+Defiance College,0.8073555166374781,10850,174,56,Yes,Not Elite
+Delta State University,0.9772492244053774,4528,459,58,No,Not Elite
+Denison University,0.8251267197682839,16900,533,81,Yes,Not Elite
+DePauw University,0.8304914744232698,14300,495,82,Yes,Not Elite
+Dickinson College,0.8424021234240212,18700,487,87,Yes,Not Elite
+Dickinson State University,0.9493087557603687,4486,319,46,No,Not Elite
+Dillard University,0.6886886886886887,6700,651,61,Yes,Not Elite
+Doane College,0.8940731399747793,9570,244,60,Yes,Not Elite
+Dominican College of Blauvelt,0.9138888888888889,8310,108,54,Yes,Not Elite
+Dordt College,0.9304635761589404,9800,328,87,Yes,Not Elite
+Dowling College,0.8199802176063303,9e3,410,42,Yes,Not Elite
+Drake University,0.9192568774562344,13420,839,77,Yes,Not Elite
+Drew University,0.7338597306084533,18432,321,83,Yes,Elite
+Drury College,0.9285714285714286,8730,314,67,Yes,Not Elite
+Duke University,0.2823264921314091,18590,1583,97,Yes,Elite
+Earlham College,0.7407952871870398,15036,274,78,Yes,Not Elite
+East Carolina University,0.6860038818201424,7248,2435,58,No,Not Elite
+East Tennessee State University,0.8198198198198198,5800,1303,42,No,Not Elite
+East Texas Baptist University,0.899736147757256,4950,265,38,Yes,Not Elite
+Eastern College,0.8056768558951966,11190,165,54,Yes,Not Elite
+Eastern Connecticut State University,0.6873848987108656,5962,564,50,No,Not Elite
+Eastern Illinois University,0.7598713596569591,5710,1565,76,No,Not Elite
+Eastern Mennonite College,0.9053497942386831,9650,227,82,Yes,Not Elite
+Eastern Nazarene College,0.7926356589147286,8770,200,70,Yes,Not Elite
+Eckerd College,0.779887482419128,15360,366,59,Yes,Not Elite
+Elizabethtown College,0.7625155151013653,14190,426,81,Yes,Not Elite
+Elmira College,0.7172271791352093,14990,345,64,Yes,Not Elite
+Elms College,0.8489795918367347,11800,125,86,Yes,Not Elite
+Elon College,0.7687637969094923,9100,858,63,Yes,Not Elite
+Embry Riddle Aeronautical University,0.8200571247223104,7800,958,44,Yes,Not Elite
+Emory & Henry College,0.8444444444444444,8578,226,82,Yes,Not Elite
+Emory University,0.4900070538443452,17600,1236,96,Yes,Elite
+Emporia State University,1,5401,853,50,No,Not Elite
+Erskine College,0.8452200303490136,10485,167,67,Yes,Not Elite
+Eureka College,0.8107142857142857,10955,113,53,Yes,Not Elite
+Evergreen State College,0.6113270405330372,6297,438,68,No,Not Elite
+Fairfield University,0.6994147157190636,15e3,781,94,Yes,Not Elite
+Fayetteville State University,0.7312714776632302,6806,452,24,No,Not Elite
+Ferrum College,0.8267363704256908,9400,336,22,Yes,Not Elite
+Flagler College,0.5045936395759717,5120,338,69,Yes,Not Elite
+Florida Institute of Technology,0.8115048793014895,13900,523,57,Yes,Not Elite
+Florida International University,0.6288566243194192,6597,1071,66,No,Not Elite
+Florida Southern College,0.7530774800868936,8025,374,68,Yes,Not Elite
+Florida State University,0.7452579177752983,6680,3023,58,No,Not Elite
+Fontbonne College,0.8419243986254296,8390,126,62,Yes,Not Elite
+Fordham University,0.6842857142857143,14235,942,80,Yes,Not Elite
+Fort Lewis College,0.8206395348837209,6198,1123,46,No,Not Elite
+Francis Marion University,0.9189339255968906,5840,819,43,No,Not Elite
+Franciscan University of Steubenville,0.8173598553345389,9650,228,83,Yes,Not Elite
+Franklin College,0.7860696517412935,10390,281,60,Yes,Not Elite
+Franklin Pierce College,0.861962598804704,13320,446,51,Yes,Not Elite
+Freed-Hardeman University,0.6122905027932961,5500,314,62,Yes,Not Elite
+Fresno Pacific College,0.791907514450867,9900,146,54,Yes,Elite
+Furman University,0.9028227672373901,13440,685,82,Yes,Elite
+Gannon University,0.7743506493506493,10970,678,65,Yes,Not Elite
+Gardner Webb University,0.8378378378378378,8180,332,29,Yes,Not Elite
+Geneva College,0.7994011976047904,9476,237,74,Yes,Not Elite
+George Fox College,0.8974042027194067,12500,294,52,Yes,Not Elite
+George Mason University,0.7652573854590483,10800,1727,46,No,Not Elite
+George Washington University,0.6427936507936508,17450,1492,72,Yes,Not Elite
+Georgetown College,0.953232462173315,8100,286,55,Yes,Not Elite
+Georgetown University,0.25919928025191186,18300,1390,95,Yes,Elite
+Georgia Institute of Technology,0.5776445068265919,6489,2276,70,No,Elite
+Georgia State University,0.617189559715265,6744,1238,34,No,Not Elite
+Georgian Court College,0.8074712643678161,9150,127,76,Yes,Not Elite
+Gettysburg College,0.685761957730812,19964,575,83,Yes,Not Elite
+Goldey Beacom College,0.7393364928909952,6120,284,36,Yes,Not Elite
+Gonzaga University,0.8080593849416755,13e3,526,69,Yes,Not Elite
+Gordon College,0.8382789317507419,12200,282,66,Yes,Not Elite
+Goshen College,0.9,9420,221,72,Yes,Not Elite
+Goucher College,0.7063423110338836,15588,248,77,Yes,Not Elite
+Grace College and Seminary,0.781021897810219,8958,167,64,Yes,Not Elite
+Graceland College,0.745945945945946,9100,242,47,Yes,Not Elite
+Grand Valley State University,0.7525653436592449,6108,1561,57,No,Not Elite
+Green Mountain College,0.8051282051282052,11750,198,76,Yes,Not Elite
+Greensboro College,0.8125,8330,176,39,Yes,Not Elite
+Greenville College,0.7588235294117647,10310,194,60,Yes,Not Elite
+Grinnell College,0.6812162824914174,15688,432,83,Yes,Elite
+Grove City College,0.4456041750301084,5224,573,100,Yes,Elite
+Guilford College,0.8768718801996672,13404,326,65,Yes,Not Elite
+Gustavus Adolphus College,0.8104154476301931,14125,634,80,Yes,Not Elite
+Gwynedd Mercy College,0.6236842105263158,11e3,104,96,Yes,Not Elite
+Hamilton College,0.5678343949044586,19700,454,91,Yes,Not Elite
+Hamline University,0.820079522862823,13252,328,65,Yes,Not Elite
+Hampden - Sydney College,0.7882496940024479,13218,307,69,Yes,Not Elite
+Hampton University,0.5231262190025077,7161,1433,70,Yes,Not Elite
+Hanover College,0.8320079522862823,8200,317,64,Yes,Not Elite
+Hardin-Simmons University,0.9079229122055674,6300,350,38,Yes,Not Elite
+Harding University,0.620569436374201,5504,806,73,Yes,Not Elite
+Hartwick College,0.828132501200192,17480,430,73,Yes,Not Elite
+Harvard University,0.1561485755499459,18485,1606,100,Yes,Elite
+Harvey Mudd College,0.4153957879448075,17230,178,100,Yes,Elite
+Hastings College,0.8665850673194615,9376,262,52,Yes,Not Elite
+Hendrix College,0.8760631834750912,8800,274,63,Yes,Elite
+Hillsdale College,0.8097826086956522,11090,347,79,Yes,Not Elite
+Hiram College,0.7906724511930586,14067,244,79,Yes,Not Elite
+Hobart and William Smith Colleges,0.7741815476190477,19029,500,79,Yes,Not Elite
+Hofstra University,0.7889068389876144,11600,1349,60,Yes,Not Elite
+Hollins College,0.8272425249169435,13470,215,72,Yes,Not Elite
+Hood College,0.8082975679542204,13960,176,72,Yes,Not Elite
+Hope College,0.8662383177570093,12275,624,72,Yes,Not Elite
+Houghton College,0.8282402528977871,9990,302,67,Yes,Not Elite
+Huntingdon College,0.8552631578947368,8080,127,44,Yes,Not Elite
+Huntington College,0.9555555555555556,9950,125,47,Yes,Not Elite
+Huron University,0.3283333333333333,7260,124,21,Yes,Not Elite
+Husson College,0.9017980636237898,7800,361,84,Yes,Not Elite
+Illinois Benedictine College,0.9192751235584844,10500,269,75,Yes,Not Elite
+Illinois College,0.8803131991051454,8050,262,52,Yes,Not Elite
+Illinois Institute of Technology,0.7744874715261959,14550,478,56,Yes,Not Elite
+Illinois State University,0.7712245133049188,7799,2408,54,No,Not Elite
+Illinois Wesleyan University,0.44,14360,471,83,Yes,Elite
+Immaculata College,0.9440298507462687,1e4,103,69,Yes,Not Elite
+Incarnate Word College,0.7970765262252795,8840,386,95,Yes,Not Elite
+Indiana State University,0.8413147199151794,6892,3147,40,No,Not Elite
+Indiana University at Bloomington,0.7983963344788088,9766,5873,68,No,Not Elite
+Indiana Wesleyan University,0.5755102040816327,9210,366,34,Yes,Not Elite
+Iona College,0.7215862632869992,10690,913,66,Yes,Not Elite
+Iowa State University,0.8809778094220957,7550,3441,65,No,Not Elite
+Ithaca College,0.7612618818019011,14424,1368,75,Yes,Not Elite
+James Madison University,0.47090795687427606,7994,2082,98,No,Not Elite
+Jamestown College,0.8686440677966102,7620,262,54,Yes,Not Elite
+Jersey City State College,0.48123097734190057,3946,691,26,No,Not Elite
+John Brown University,0.6694214876033058,6398,284,75,Yes,Not Elite
+John Carroll University,0.8711276332094176,11700,820,89,Yes,Not Elite
+Johns Hopkins University,0.40665565258437575,18800,911,90,Yes,Elite
+Johnson State College,0.8031212484993998,7656,279,36,No,Not Elite
+Judson College,0.7284345047923323,9414,137,56,Yes,Not Elite
+Juniata College,0.854726368159204,14850,298,80,Yes,Not Elite
+Kansas State University,0.6930272108843537,6995,2833,54,No,Not Elite
+Kansas Wesleyan University,0.9762308998302207,8400,148,68,Yes,Not Elite
+Keene State College,0.7837231656520346,7870,822,61,No,Not Elite
+Kentucky Wesleyan College,0.851027397260274,8e3,175,62,Yes,Not Elite
+Kenyon College,0.6952983725135624,19240,408,88,Yes,Not Elite
+Keuka College,0.8264642082429501,9600,174,51,Yes,Not Elite
+King's College,0.7232142857142857,10910,381,87,Yes,Not Elite
+King College,0.8450704225352113,8664,142,65,Yes,Not Elite
+Knox College,0.8125,15747,286,79,Yes,Not Elite
+La Roche College,0.889196675900277,8842,185,52,Yes,Not Elite
+La Salle University,0.6261522703994538,12600,622,84,Yes,Not Elite
+Lafayette College,0.599002493765586,18730,572,92,Yes,Not Elite
+LaGrange College,0.7334558823529411,6987,177,75,Yes,Not Elite
+Lake Forest College,0.651685393258427,16880,271,77,Yes,Not Elite
+Lakeland College,0.9094567404426559,9400,231,57,Yes,Not Elite
+Lamar University,0.7384417808219178,4752,1043,26,No,Not Elite
+Lambuth University,0.6474127557160048,5170,224,60,Yes,Not Elite
+Lander University,0.8653516295025729,4938,510,51,No,Not Elite
+Lawrence University,0.7618664521319388,17163,324,77,Yes,Not Elite
+Le Moyne College,0.8156462585034013,11040,425,94,Yes,Not Elite
+Lebanon Valley College,0.7647907647907648,13850,320,85,Yes,Not Elite
+Lehigh University,0.6728153822104112,18700,1092,91,Yes,Not Elite
+Lenoir-Rhyne College,0.7589376915219612,10100,259,66,Yes,Not Elite
+Lesley College,0.8114754098360656,11700,82,58,Yes,Not Elite
+LeTourneau University,0.8742138364779874,8840,204,56,Yes,Not Elite
+Lewis and Clark College,0.7541456380677721,15800,482,69,Yes,Not Elite
+Lewis University,0.9098786828422877,10560,395,61,Yes,Not Elite
+Lincoln Memorial University,0.7141041931385006,5950,363,53,Yes,Not Elite
+Lincoln University,0.6572289156626506,4818,326,45,No,Not Elite
+Lindenwood College,0.5975308641975309,9200,356,100,Yes,Not Elite
+Linfield College,0.7610506085842409,13380,458,81,Yes,Not Elite
+Livingstone College,0.5255555555555556,4400,217,92,Yes,Not Elite
+Lock Haven University of Pennsylvania,0.6204481792717087,7352,651,63,No,Not Elite
+Longwood College,0.6807426283218057,7920,724,62,No,Not Elite
+Loras College,0.7818403412553321,11200,527,70,Yes,Not Elite
+Louisiana College,0.5230998509687034,5150,212,59,Yes,Not Elite
+Louisiana State University at Baton Rouge,0.8327218145430287,5925,3079,37,No,Not Elite
+Louisiana Tech University,0.8944513975803087,3957,1525,45,No,Not Elite
+Loyola College,0.7696270853778214,12990,738,80,Yes,Not Elite
+Loyola Marymount University,0.7064755838641189,13592,753,84,Yes,Not Elite
+Loyola University,0.8979375991538868,11100,719,53,Yes,Not Elite
+Loyola University Chicago,0.8267672534227438,11500,868,65,Yes,Not Elite
+Luther College,0.8986442866365397,13240,587,77,Yes,Not Elite
+Lycoming College,0.78149300155521,13900,363,72,Yes,Not Elite
+Lynchburg College,0.8542141230068337,12450,366,70,Yes,Not Elite
+Lyndon State College,0.9383177570093458,7320,223,51,No,Not Elite
+Macalester College,0.5090166723375298,15909,452,77,Yes,Elite
+MacMurray College,0.754054054054054,9620,177,59,Yes,Not Elite
+Malone College,0.8672768878718535,9858,428,55,Yes,Not Elite
+Manchester College,0.798804780876494,10440,239,64,Yes,Not Elite
+Manhattan College,0.7113486842105263,12370,563,79,Yes,Not Elite
+Manhattanville College,0.7796257796257796,14700,212,70,Yes,Not Elite
+Mankato State University,0.8695086234949561,4300,1547,68,No,Not Elite
+Marian College of Fond du Lac,0.8131067961165048,9400,337,59,Yes,Not Elite
+Marietta College,0.595903165735568,13850,342,96,Yes,Not Elite
+Marist College,0.6702599873176919,10700,830,69,Yes,Not Elite
+Marquette University,0.8928571428571429,11610,1685,77,Yes,Not Elite
+Marshall University,0.8674869853289162,5094,2007,50,Yes,Not Elite
+Mary Baldwin College,0.8837675350701403,11200,199,90,Yes,Not Elite
+Mary Washington College,0.5006896551724138,6490,756,84,No,Not Elite
+Marymount College Tarrytown,0.6841004184100419,11510,117,77,Yes,Not Elite
+Marymount Manhattan College,0.7697841726618705,10200,239,68,Yes,Not Elite
+Marymount University,0.820403825717322,11390,214,55,Yes,Not Elite
+Maryville College,0.6065573770491803,11200,176,51,Yes,Not Elite
+Maryville University,0.7231329690346083,9250,169,61,Yes,Not Elite
+Marywood College,0.7759710930442638,11040,323,66,Yes,Not Elite
+Massachusetts Institute of Technology,0.33380127905163,20100,1078,94,Yes,Elite
+Mayville State University,1,4486,153,51,No,Not Elite
+McKendree College,0.5538922155688623,7680,119,52,Yes,Not Elite
+McMurry University,0.7110726643598616,6930,187,32,Yes,Not Elite
+McPherson College,0.6976190476190476,7950,93,48,Yes,Not Elite
+Mercer University,0.7296587926509186,11985,564,91,Yes,Not Elite
+Mercyhurst College,0.6897880539499036,9813,397,78,Yes,Not Elite
+Meredith College,0.9008168028004667,6720,376,82,Yes,Not Elite
+Merrimack College,0.7778899545683998,12500,514,80,Yes,Not Elite
+Mesa State College,0.9191919191919192,5016,891,59,No,Not Elite
+Messiah College,0.7933409873708381,10300,607,89,Yes,Not Elite
+Miami University at Oxford,0.8429483710358264,8856,3290,85,No,Not Elite
+Michigan State University,0.8333885392514078,10658,6180,71,No,Not Elite
+Michigan Technological University,0.8739495798319328,8127,1032,65,No,Not Elite
+MidAmerica Nazarene College,1,6840,225,49,Yes,Not Elite
+Millersville University of Penn.,0.5115621360838463,7844,960,71,No,Not Elite
+Milligan College,0.7557377049180328,8200,189,64,Yes,Not Elite
+Millikin University,0.8732686980609419,11910,456,75,Yes,Not Elite
+Millsaps College,0.9215469613259668,11320,319,58,Yes,Not Elite
+Milwaukee School of Engineering,0.8940016433853739,11505,496,67,Yes,Not Elite
+Mississippi College,0.6481481481481481,5580,307,61,Yes,Not Elite
+Mississippi State University,0.7701527614571093,9866,1609,53,No,Not Elite
+Mississippi University for Women,0.84375,4386,380,63,No,Not Elite
+Missouri Southern State College,0.8413705583756346,3840,913,100,No,Not Elite
+Missouri Valley College,0.750381679389313,8550,316,27,Yes,Not Elite
+Monmouth College IL,0.8369384359400999,13e3,204,56,Yes,Not Elite
+Monmouth College,0.6948651643886221,12480,478,54,Yes,Not Elite
+Montana College of Mineral Sci. & Tech.,0.951048951048951,6073,320,74,No,Not Elite
+Montana State University,0.8102857142857143,5552,1779,37,No,Not Elite
+Montclair State University,0.4076628352490421,3648,865,58,No,Not Elite
+Montreat-Anderson College,0.8479087452471483,8438,103,15,Yes,Not Elite
+Moorhead State University,0.8861588861588862,4426,1189,60,No,Not Elite
+Moravian College,0.7751623376623377,14990,303,74,Yes,Not Elite
+Morehouse College,0.4525350593311758,7050,722,83,Yes,Not Elite
+Morningside College,0.909556313993174,10520,239,56,Yes,Not Elite
+Morris College,0.8276643990929705,4515,330,60,Yes,Not Elite
+Mount Holyoke College,0.73,19300,526,84,Yes,Not Elite
+Mount Marty College,0.989247311827957,6844,126,44,Yes,Not Elite
+Mount Mary College,0.9234042553191489,8950,121,78,Yes,Not Elite
+Mount Mercy College,0.8614130434782609,10500,159,64,Yes,Not Elite
+Mount Saint Clare College,0.8738461538461538,9900,95,21,Yes,Not Elite
+Mount Saint Mary's College,0.8773656320968963,12850,328,80,Yes,Not Elite
+Mount Saint Mary College,0.594017094017094,7470,238,88,Yes,Not Elite
+Mount St. Mary's College,0.817351598173516,12474,113,72,Yes,Not Elite
+Mount Union College,0.8290076335877863,12250,458,81,Yes,Not Elite
+Mount Vernon Nazarene College,0.9509803921568627,7400,334,58,Yes,Not Elite
+Muhlenberg College,0.7288606589916634,16975,462,83,Yes,Not Elite
+Murray State University,0.8584269662921349,4738,1190,52,No,Not Elite
+Muskingum College,0.8313796212804329,13240,375,73,Yes,Not Elite
+National-Louis University,0.6764132553606238,9090,279,71,Yes,Not Elite
+Nazareth College of Rochester,0.8426610348468849,10850,266,61,Yes,Not Elite
+New Jersey Institute of Technology,0.6471527408195848,8832,483,72,No,Not Elite
+New Mexico Institute of Mining and Tech.,0.7636594663278272,5376,233,34,No,Not Elite
+New York University,0.5328821538914227,17748,2505,71,Yes,Elite
+Newberry College,0.8279816513761468,10194,154,83,Yes,Not Elite
+Niagara University,0.809009009009009,10320,467,65,Yes,Elite
+North Adams State College,0.6429942418426103,5542,240,57,No,Not Elite
+North Carolina A. & T. State University,0.6423372842586816,6806,1429,44,No,Not Elite
+North Carolina State University at Raleigh,0.6642843708858379,8400,3176,62,No,Not Elite
+North Carolina Wesleyan College,0.8485221674876847,8242,195,52,Yes,Not Elite
+North Central College,0.7843833185448092,11718,308,76,Yes,Not Elite
+North Dakota State University,0.773921832884097,5834,1610,42,No,Not Elite
+North Park College,0.7763440860215054,12580,176,74,Yes,Not Elite
+Northeast Missouri State University,0.7577814569536424,4856,1620,76,No,Not Elite
+Northeastern University,0.7135534829005966,13380,2517,46,Yes,Not Elite
+Northern Arizona University,0.8370395518587677,6746,1973,41,No,Not Elite
+Northern Illinois University,0.6742947879693629,7799,2397,56,No,Not Elite
+Northwest Missouri State University,0.9289116892634665,3735,1257,54,No,Not Elite
+Northwest Nazarene College,0.8344155844155844,9840,385,58,Yes,Not Elite
+Northwestern College,0.9430232558139535,9900,366,68,Yes,Not Elite
+Northwestern University,0.4231426478964928,16404,1902,92,Yes,Elite
+Norwich University,0.9323006310958118,14134,626,63,Yes,Not Elite
+Notre Dame College,0.8548812664907651,9990,107,33,Yes,Not Elite
+Oakland University,0.8487339690891155,9114,1173,53,No,Not Elite
+Oberlin College,0.5791125994139807,19670,678,83,Yes,Not Elite
+Occidental College,0.5675559380378657,16560,370,79,Yes,Elite
+Oglethorpe University,0.8194444444444444,12900,186,67,Yes,Elite
+Ohio Northern University,0.797683923705722,15990,669,83,Yes,Not Elite
+Ohio University,0.7527896217000817,7629,3183,64,No,Not Elite
+Ohio Wesleyan University,0.776255707762557,16732,458,75,Yes,Not Elite
+Oklahoma Baptist University,0.8984168865435356,5390,484,50,Yes,Not Elite
+Oklahoma Christian University,0.9858247422680413,6400,351,45,Yes,Not Elite
+Oklahoma State University,0.8653250773993808,5336,2181,48,No,Not Elite
+Otterbein College,0.80548128342246,12888,428,87,Yes,Not Elite
+Ouachita Baptist University,0.8494505494505494,6530,450,65,Yes,Not Elite
+Our Lady of the Lake University,0.5788561525129983,8530,295,37,Yes,Not Elite
+Pace University,0.45421511627906974,11e3,1522,62,Yes,Not Elite
+Pacific Lutheran University,0.8683718028696195,13312,504,83,Yes,Not Elite
+Pacific Union College,0.7106382978723405,11925,385,69,Yes,Not Elite
+Pacific University,0.9003181336161188,14210,288,42,Yes,Not Elite
+Pembroke State University,0.8199152542372882,6360,440,48,No,Not Elite
+Pennsylvania State Univ. Main Campus,0.5355423246181724,10645,3450,63,No,Not Elite
+Pepperdine University,0.5331065166186862,18200,680,66,Yes,Elite
+Peru State College,0.7146932952924394,2580,458,44,No,Not Elite
+Pfeiffer College,0.7768496420047732,8640,159,48,Yes,Not Elite
+Philadelphia Coll. of Textiles and Sci.,0.8185955786736021,11690,468,68,Yes,Not Elite
+Phillips University,0.8323699421965318,10500,174,39,Yes,Not Elite
+Piedmont College,0.8476621417797888,5640,127,31,Yes,Not Elite
+Pikeville College,0.9900990099009901,6e3,169,61,Yes,Not Elite
+Pitzer College,0.556045895851721,17688,220,73,Yes,Not Elite
+Point Loma Nazarene College,0.8491965389369592,10178,428,54,Yes,Not Elite
+Point Park College,0.8502857142857143,9700,207,66,Yes,Not Elite
+Polytechnic University,0.7482332155477032,16200,302,62,Yes,Elite
+Prairie View A. and M. University,0.928898128898129,4290,1061,35,No,Not Elite
+Presbyterian College,0.7689463955637708,11859,302,85,Yes,Not Elite
+Princeton University,0.15448630655167198,19900,1153,99,Yes,Elite
+Providence College,0.651099435687877,14400,973,96,Yes,Not Elite
+Purdue University at West Lafayette,0.8596587782058338,9556,5874,67,No,Not Elite
+Queens College,0.7596899224806202,11020,154,58,Yes,Not Elite
+Quincy University,0.6897560975609756,10100,297,80,Yes,Not Elite
+Quinnipiac College,0.580010775862069,12030,806,86,Yes,Not Elite
+Radford University,0.858295334970186,6684,1742,62,No,Not Elite
+Ramapo College of New Jersey,0.4583333333333333,4449,362,47,No,Not Elite
+Randolph-Macon College,0.7481648785996612,13840,306,74,Yes,Not Elite
+Randolph-Macon Woman's College,0.8850574712643678,13970,169,68,Yes,Not Elite
+Reed College,0.7304170905391658,19960,327,68,Yes,Not Elite
+Regis College,0.9016393442622951,12700,143,84,Yes,Not Elite
+Rensselaer Polytechnic Institute,0.8336669335468375,17475,936,70,Yes,Elite
+Rhodes College,0.7953953084274544,15200,391,77,Yes,Elite
+Rider University,0.6759620747350809,13250,730,70,Yes,Not Elite
+Ripon College,0.8534923339011925,15200,211,64,Yes,Not Elite
+Rivier College,0.7975206611570248,9870,141,81,Yes,Not Elite
+Roanoke College,0.8037718904355635,13425,437,72,Yes,Not Elite
+Rockhurst College,0.9176470588235294,9490,345,79,Yes,Not Elite
+Rocky Mountain College,0.7,8734,270,68,Yes,Not Elite
+Roger Williams University,0.8486682808716707,12520,679,61,Yes,Not Elite
+Rollins College,0.6477208778840743,16425,382,90,Yes,Not Elite
+Rosary College,0.7396313364055299,10950,141,81,Yes,Not Elite
+Rowan College of New Jersey,0.37460732984293194,4356,695,51,No,Not Elite
+Rutgers at New Brunswick,0.5474695388198112,7410,4520,77,No,Not Elite
+Rutgers State University at Camden,0.5204991087344029,7411,232,57,No,Not Elite
+Rutgers State University at Newark,0.46499567847882456,7410,499,58,No,Not Elite
+Sacred Heart University,0.8218465539661899,11070,509,82,Yes,Not Elite
+Saint Ambrose University,0.8004459308807135,10450,276,70,Yes,Not Elite
+Saint Anselm College,0.7412887828162291,12950,514,97,Yes,Not Elite
+Saint Cloud State University,0.8325358851674641,4259,1921,58,No,Not Elite
+Saint Francis College IN,0.7793427230046949,8670,85,48,Yes,Not Elite
+Saint Francis College,0.7877629063097514,10880,284,69,Yes,Not Elite
+Saint John's University,0.857449088960343,12247,444,70,Yes,Not Elite
+Saint Joseph's College IN,0.7434782608695653,11200,225,67,Yes,Not Elite
+Saint Joseph's College,0.8187274909963985,9985,217,85,Yes,Not Elite
+Saint Joseph's University,0.7951568082572449,12750,776,83,Yes,Not Elite
+Saint Joseph College,0.8253424657534246,12200,96,76,Yes,Not Elite
+Saint Louis University,0.8667273831208258,11690,956,67,Yes,Not Elite
+Saint Mary's College,0.8265765765765766,12730,393,98,Yes,Not Elite
+Saint Mary's College of Minnesota,0.9155251141552512,10800,367,78,Yes,Not Elite
+Saint Mary-of-the-Woods College,0.8666666666666667,10300,88,75,Yes,Not Elite
+Saint Michael's College,0.7225130890052356,13030,463,84,Yes,Not Elite
+Saint Olaf College,0.7442170818505338,14350,745,83,Yes,Not Elite
+Saint Peter's College,0.8798256537982565,9408,530,53,Yes,Not Elite
+Saint Vincent College,0.85,10850,278,88,Yes,Not Elite
+Saint Xavier University,0.824203821656051,10860,295,55,Yes,Not Elite
+Salem-Teikyo University,0.7852760736196319,10575,120,98,Yes,Not Elite
+Salem College,0.8477611940298507,10475,132,60,Yes,Not Elite
+Salisbury State University,0.543168880455408,5130,736,56,No,Not Elite
+Samford University,0.8303571428571429,8236,691,61,Yes,Not Elite
+San Diego State University,0.7466496490108487,8384,2151,41,No,Not Elite
+Santa Clara University,0.6914655386912167,13584,888,100,Yes,Not Elite
+Sarah Lawrence College,0.5565217391304348,19300,263,83,Yes,Elite
+Savannah Coll. of Art and Design,0.6203787195671776,8325,386,55,Yes,Not Elite
+Schreiner College,0.7071917808219178,8955,131,52,Yes,Not Elite
+Scripps College,0.7391812865497076,17238,139,73,Yes,Elite
+Seattle Pacific University,0.8588334742180896,12669,411,66,Yes,Not Elite
+Seattle University,0.7281323877068558,12825,494,89,Yes,Not Elite
+Seton Hall University,0.7790646853146853,12e3,1e3,64,Yes,Not Elite
+Seton Hill College,0.8482905982905983,11240,197,71,Yes,Not Elite
+Shippensburg University of Penn.,0.5639394981093159,7844,1116,72,No,Not Elite
+Shorter College,0.8240740740740741,7210,165,58,Yes,Not Elite
+Siena College,0.6524822695035462,10800,628,100,Yes,Not Elite
+Siena Heights College,0.9030172413793104,9240,183,47,Yes,Not Elite
+Simmons College,0.7796610169491526,16160,295,79,Yes,Not Elite
+Simpson College,0.8582677165354331,11250,300,70,Yes,Not Elite
+Sioux Falls College,0.9153318077803204,8990,211,48,Yes,Not Elite
+Skidmore College,0.6354530631260191,18710,591,81,Yes,Not Elite
+Smith College,0.5463247863247863,18820,632,90,Yes,Elite
+South Dakota State University,0.9223370146063413,3811,1701,67,No,Not Elite
+Southeast Missouri State University,0.8198158702323542,4680,1408,45,No,Not Elite
+Southeastern Oklahoma State Univ.,0.8557457212713936,3738,447,53,No,Not Elite
+Southern California College,0.8831168831168831,9520,193,43,Yes,Not Elite
+Southern Illinois University at Edwardsville,0.8641732283464567,5472,994,43,No,Not Elite
+Southern Methodist University,0.8033015577772611,12772,1166,72,Yes,Not Elite
+Southwest Baptist University,1,7070,642,71,Yes,Not Elite
+Southwest Missouri State University,0.8587773782281791,4740,3204,56,No,Not Elite
+Southwest State University,0.8958930276981852,4285,511,51,No,Not Elite
+Southwestern Adventist College,0.9906542056074766,7536,172,36,Yes,Not Elite
+Southwestern College,0.7276995305164319,7200,75,52,Yes,Not Elite
+Southwestern University,0.7331189710610932,11850,352,67,Yes,Not Elite
+Spalding University,0.7102473498233216,8400,97,89,Yes,Not Elite
+Spelman College,0.3331537840021546,7e3,443,65,Yes,Not Elite
+Spring Arbor College,0.9731182795698925,8600,181,49,Yes,Not Elite
+St. Bonaventure University,0.8817998656816656,10456,375,78,Yes,Not Elite
+St. John's College,0.8606811145510835,16150,122,64,Yes,Not Elite
+St. John Fisher College,0.7777777777777778,10570,354,66,Yes,Not Elite
+St. Lawrence University,0.6610969851071559,18720,505,85,Yes,Not Elite
+St. Martin's College,0.8638743455497382,11550,63,40,Yes,Not Elite
+St. Mary's College of California,0.6095346197502838,13332,465,78,Yes,Not Elite
+St. Mary's College of Maryland,0.5186567164179104,6800,285,63,No,Not Elite
+St. Mary's University of San Antonio,0.8205953338696702,8678,414,72,Yes,Not Elite
+St. Norbert College,0.931784107946027,12140,568,88,Yes,Not Elite
+St. Paul's College,0.8924731182795699,5e3,243,45,Yes,Not Elite
+St. Thomas Aquinas College,0.7073170731707317,8650,215,67,Yes,Not Elite
+Stephens College,0.9,13900,194,59,Yes,Not Elite
+Stetson University,0.7880539499036608,12315,489,73,Yes,Not Elite
+Stevens Institute of Technology,0.706447963800905,16900,380,79,Yes,Elite
+Stockton College of New Jersey,0.39288380194078126,3040,710,64,No,Not Elite
+Stonehill College,0.6308283049917718,12170,585,97,Yes,Not Elite
+SUNY at Albany,0.6799231224127735,6550,1843,74,No,Not Elite
+SUNY at Binghamton,0.42632925395837656,6550,1757,80,No,Elite
+SUNY at Buffalo,0.6415985105392645,6550,3087,56,No,Not Elite
+SUNY at Stony Brook,0.5569852941176471,6550,1724,57,No,Not Elite
+SUNY College  at Brockport,0.48862078420619687,6550,904,49,No,Not Elite
+SUNY College  at Oswego,0.5695,6550,1464,63,No,Not Elite
+SUNY College at Buffalo,0.6609627679578789,6550,1025,42,No,Not Elite
+SUNY College at Cortland,0.44612068965517243,6550,1036,53,No,Not Elite
+SUNY College at Fredonia,0.5737133483698995,6550,814,66,No,Not Elite
+SUNY College at Geneseo,0.5305885089555711,6550,1143,76,No,Elite
+SUNY College at New Paltz,0.42969401119180856,6550,656,53,No,Not Elite
+SUNY College at Plattsburgh,0.6457019282753649,6550,853,65,No,Not Elite
+SUNY College at Potsdam,0.7266666666666667,6840,650,59,No,Not Elite
+SUNY College at Purchase,0.5965077866918358,6550,390,46,No,Not Elite
+Susquehanna University,0.7213740458015268,16130,465,90,Yes,Not Elite
+Sweet Briar College,0.8701298701298701,14500,146,61,Yes,Not Elite
+Syracuse University,0.6929464541376348,15150,2442,67,Yes,Not Elite
+Tabor College,0.7120622568093385,7850,109,53,Yes,Not Elite
+Talladega College,0.33982782057091077,5666,335,46,Yes,Not Elite
+Taylor University,0.6172979084228377,10965,437,98,Yes,Not Elite
+Tennessee Wesleyan College,0.7844827586206896,7070,99,36,Yes,Not Elite
+Texas A&M Univ. at College Station,0.7267514163327345,5130,6392,69,No,Not Elite
+Texas A&M University at Galveston,0.9092627599243857,4860,243,43,No,Not Elite
+Texas Christian University,0.7518925518925519,8490,1195,64,Yes,Not Elite
+Texas Lutheran College,0.8511066398390342,7850,215,50,Yes,Not Elite
+Texas Southern University,0.7468354430379747,7860,2604,10,No,Not Elite
+Texas Wesleyan University,0.8462837837837838,6400,279,43,Yes,Not Elite
+The Citadel,0.828,7070,611,84,No,Not Elite
+Thiel College,0.8240901213171578,11172,253,60,Yes,Not Elite
+Tiffin University,0.8686390532544379,7600,254,39,Yes,Not Elite
+Transylvania University,0.9604743083003953,10900,244,70,Yes,Elite
+Trenton State College,0.45854819516065054,5391,944,81,No,Elite
+Tri-State University,0.873217115689382,9456,276,65,Yes,Not Elite
+Trinity College CT,0.5879659908436887,18810,478,91,Yes,Not Elite
+Trinity College DC,0.7651821862348178,11412,100,96,Yes,Not Elite
+Trinity College VT,0.8333333333333334,11010,91,78,Yes,Not Elite
+Trinity University,0.7496907216494846,12240,601,93,Yes,Elite
+Tulane University,0.7287075216834921,19040,1223,74,Yes,Not Elite
+Tusculum College,0.5942492012779552,7700,145,52,Yes,Not Elite
+Tuskegee University,0.8059108954565505,6735,611,65,Yes,Not Elite
+Union College KY,0.7933884297520661,7800,177,64,Yes,Not Elite
+Union College NY,0.4898426323319027,18732,528,88,Yes,Not Elite
+Univ. of Wisconsin at OshKosh,0.6041666666666666,6874,1515,56,No,Not Elite
+University of Alabama at Birmingham,0.7011686143572621,4440,938,33,No,Not Elite
+University of Arkansas at Fayetteville,0.960741885625966,5028,2133,39,No,Not Elite
+University of California at Berkeley,0.4152367533839883,11648,3215,78,No,Elite
+University of California at Irvine,0.6863931711045993,12024,2478,66,No,Elite
+University of Central Florida,0.42356140853134844,6618,1918,46,No,Not Elite
+University of Charleston,0.7844574780058651,9500,204,57,Yes,Not Elite
+University of Chicago,0.47243226212980466,18930,922,90,Yes,Elite
+University of Cincinnati,0.8100656455142232,8907,2408,54,No,Not Elite
+University of Connecticut at Storrs,0.7382639958911146,11656,2064,71,No,Not Elite
+University of Dallas,0.8634361233480177,10760,246,63,Yes,Not Elite
+University of Dayton,0.8321018707750354,11380,1507,93,Yes,Not Elite
+University of Delaware,0.7279523743596843,10220,3252,75,Yes,Not Elite
+University of Denver,0.6728312037659717,15192,580,67,Yes,Not Elite
+University of Detroit Mercy,0.7885652642934197,11130,415,51,Yes,Not Elite
+University of Dubuque,0.96875,10430,137,45,Yes,Not Elite
+University of Evansville,0.7757633587786259,11800,694,77,Yes,Not Elite
+University of Florida,0.7100040176777822,7090,3623,66,No,Elite
+University of Georgia,0.7015151515151515,5697,3320,63,No,Not Elite
+University of Hartford,0.7951190710490061,14220,1194,66,Yes,Not Elite
+University of Hawaii at Manoa,0.7270949720670391,4460,1627,54,No,Not Elite
+University of Illinois - Urbana,0.7799718856683847,7560,5705,81,No,Elite
+University of Illinois at Chicago,0.6830868320610687,7230,2710,34,No,Not Elite
+University of Indianapolis,0.8581035642232683,11120,388,69,Yes,Not Elite
+University of Kansas,0.6482107471733303,6994,3681,57,No,Not Elite
+University of La Verne,0.606762680025047,13540,226,47,Yes,Not Elite
+University of Louisville,0.6399413858069918,6540,1823,31,No,Not Elite
+University of Maine at Farmington,0.6647350993377483,6810,438,59,No,Not Elite
+University of Maine at Machias,0.8367346938775511,6600,172,64,No,Not Elite
+University of Maine at Presque Isle,0.8264642082429501,6600,235,35,No,Not Elite
+University of Maryland at Baltimore County,0.6076364488170531,8594,985,55,No,Not Elite
+University of Maryland at College Park,0.7217324377273999,8723,3409,63,No,Not Elite
+University of Massachusetts at Amherst,0.8598143787228147,8566,3816,68,No,Not Elite
+University of Massachusetts at Dartmouth,0.775918733193905,6919,1006,56,No,Not Elite
+University of Miami,0.7562482448750351,16500,1643,59,Yes,Not Elite
+University of Michigan at Ann Arbor,0.6756474519632414,15732,4893,87,No,Elite
+University of Minnesota at Duluth,0.745706106870229,8828,1656,53,No,Not Elite
+University of Minnesota at Morris,0.5994513031550068,9843,588,51,No,Elite
+University of Minnesota Twin Cities,0.5787045413425005,8949,3524,45,No,Not Elite
+University of Mississippi,0.8800728407908429,4916,1669,53,No,Not Elite
+University of Missouri at Columbia,0.7053544265287496,9057,2940,58,No,Not Elite
+University of Missouri at Rolla,0.9728289824187534,9057,823,49,No,Not Elite
+University of Missouri at Saint Louis,0.7051915945611866,7246,479,48,No,Not Elite
+University of Mobile,0.7323008849557522,6150,269,52,Yes,Not Elite
+University of Montevallo,0.6602516654330126,4440,570,51,No,Not Elite
+University of Nebraska at Lincoln,0.9563485741596304,5595,3526,53,No,Not Elite
+University of New England,0.6203473945409429,11450,265,64,Yes,Not Elite
+University of New Hampshire,0.7835897435897435,11180,2529,75,No,Not Elite
+University of North Carolina at Asheville,0.5571997723392146,5972,394,37,No,Not Elite
+University of North Carolina at Chapel Hill,0.41004384762948753,8400,3331,83,No,Elite
+University of North Carolina at Charlotte,0.7652938135447183,7248,1730,62,No,Not Elite
+University of North Carolina at Greensboro,0.7963783471392796,8677,1500,53,No,Not Elite
+University of North Carolina at Wilmington,0.6351507165211662,7558,1449,55,No,Not Elite
+University of North Dakota,0.8098667626935542,5634,1652,49,No,Not Elite
+University of North Florida,0.6961111111111111,6634,560,47,No,Not Elite
+University of North Texas,0.6195110909913988,4104,2049,35,No,Not Elite
+University of Northern Colorado,0.7245931283905968,7731,1697,40,No,Not Elite
+University of Northern Iowa,0.815395752895753,6197,1853,77,No,Not Elite
+University of Notre Dame,0.4805194805194805,16850,1906,97,Yes,Elite
+University of Oklahoma,0.837022981235505,5173,2233,44,No,Not Elite
+University of Oregon,0.7799791449426486,10602,2546,54,No,Not Elite
+University of Pennsylvania,0.42213974503792157,17020,2464,93,Yes,Elite
+University of Pittsburgh-Main Campus,0.7434195201490799,10786,2503,66,No,Not Elite
+University of Portland,0.8447098976109215,12040,419,72,Yes,Not Elite
+University of Puget Sound,0.6988130563798219,16230,688,63,Yes,Elite
+University of Rhode Island,0.8037954993259359,10330,1968,63,No,Not Elite
+University of Richmond,0.46130346232179226,14500,756,100,Yes,Not Elite
+University of Rochester,0.6271959844855122,17840,1243,80,Yes,Elite
+University of San Diego,0.6952211489578037,13600,886,66,Yes,Not Elite
+University of San Francisco,0.746313963573287,13226,538,62,Yes,Not Elite
+University of Sci. and Arts of Oklahoma,0.9824561403508771,3687,208,43,No,Not Elite
+University of Scranton,0.6580183404160144,11584,910,92,Yes,Not Elite
+University of South Carolina at Aiken,0.660377358490566,5800,377,48,No,Not Elite
+University of South Carolina at Columbia,0.755881970622644,8074,2328,63,No,Not Elite
+University of South Florida,0.6161549611279483,6760,1876,47,No,Not Elite
+University of Southern California,0.6949055523755009,17230,2477,68,Yes,Not Elite
+University of Southern Colorado,0.8843683083511777,7100,605,36,No,Not Elite
+University of Southern Indiana,0.8965952080706179,4973,1292,38,No,Not Elite
+University of Southern Mississippi,0.7171929824561404,4652,1046,45,No,Not Elite
+University of St. Thomas MN,0.8784637822070978,11712,828,89,Yes,Not Elite
+University of St. Thomas TX,0.7486631016042781,8550,185,62,Yes,Not Elite
+University of Tennessee at Knoxville,0.7188545430215443,5764,3013,53,No,Not Elite
+University of Texas at Arlington,0.7799451386772326,4422,1448,29,No,Not Elite
+University of Texas at Austin,0.6488611713665944,5130,5329,65,No,Not Elite
+University of Texas at San Antonio,0.7351197533791796,4104,1686,50,No,Not Elite
+University of the Arts,0.7227926078028748,12520,290,57,Yes,Not Elite
+University of the Pacific,0.8121187474583164,16320,582,65,Yes,Not Elite
+University of the South,0.6685121107266436,15350,326,82,Yes,Not Elite
+University of Tulsa,0.9094626168224299,11750,696,47,Yes,Not Elite
+University of Utah,0.8814524043179588,6857,2400,37,No,Not Elite
+University of Vermont,0.7840271434164165,15516,1735,79,No,Not Elite
+University of Virginia,0.3397059751403874,12212,2678,95,No,Elite
+University of Washington,0.5510236096948781,8199,3343,65,No,Not Elite
+University of West Florida,0.8048780487804879,6172,472,53,No,Not Elite
+University of Wisconsin-Stout,0.7581951407635943,6704,1030,65,No,Not Elite
+University of Wisconsin-Superior,1,7032,342,36,No,Not Elite
+University of Wisconsin-Whitewater,0.8452272727272727,6950,1472,67,No,Not Elite
+University of Wisconsin at Green Bay,0.8048982980489829,6900,759,46,No,Not Elite
+University of Wisconsin at Madison,0.7336420374471512,9096,4631,72,No,Not Elite
+University of Wisconsin at Milwaukee,0.721205186880244,8786,1930,38,No,Not Elite
+University of Wyoming,0.7471660916707737,5988,1073,45,No,Not Elite
+Upper Iowa University,0.6817496229260935,8840,192,78,Yes,Not Elite
+Ursinus College,0.7333809864188706,14900,308,79,Yes,Not Elite
+Ursuline College,0.8,9600,86,68,Yes,Not Elite
+Valley City State University,0.9347826086956522,4286,212,40,No,Not Elite
+Valparaiso University,0.832289156626506,11800,520,95,Yes,Not Elite
+Vanderbilt University,0.6019766397124887,17865,1499,83,Yes,Elite
+Vassar College,0.5287323943661972,18920,653,90,Yes,Elite
+Villanova University,0.7201959015337028,15925,1477,96,Yes,Not Elite
+Virginia Commonwealth University,0.7046141446705622,10217,1567,45,No,Not Elite
+Virginia State University,0.8144192256341789,5587,704,31,No,Not Elite
+Virginia Tech,0.7458630346232179,10260,4277,73,No,Not Elite
+Virginia Union University,0.8716838115863562,7384,453,30,Yes,Not Elite
+Virginia Wesleyan College,0.6122448979591837,10900,287,68,Yes,Not Elite
+Viterbo College,0.8006182380216383,9140,271,73,Yes,Not Elite
+Voorhees College,0.6866894197952218,4450,188,58,Yes,Not Elite
+Wabash College,0.77875,12925,256,72,Yes,Not Elite
+Wagner College,0.7168079096045198,13500,417,75,Yes,Not Elite
+Wake Forest University,0.4225401872460696,13850,903,89,Yes,Elite
+Walsh University,0.815018315018315,8670,477,68,Yes,Not Elite
+Warren Wilson College,0.7068181818181818,1e4,112,63,Yes,Not Elite
+Wartburg College,0.8724614134849715,11600,345,67,Yes,Not Elite
+Washington and Jefferson College,0.842911877394636,16260,334,86,Yes,Not Elite
+Washington and Lee University,0.3306184012066365,13750,425,90,Yes,Elite
+Washington College,0.7791563275434243,15276,214,65,Yes,Not Elite
+Washington State University,0.8928134556574924,8200,2440,56,No,Not Elite
+Washington University,0.687091716749412,18350,1254,90,Yes,Elite
+Wayne State College,1,2700,724,52,No,Not Elite
+Waynesburg College,0.8218487394957983,8840,324,63,Yes,Not Elite
+Webber College,0.5107142857142857,5590,79,90,Yes,Not Elite
+Webster University,0.6947368421052632,9160,226,48,Yes,Not Elite
+Wellesley College,0.431433506044905,18345,579,91,Yes,Elite
+Wells College,0.7547169811320755,14900,130,69,Yes,Not Elite
+Wentworth Institute of Technology,0.8493243243243244,9850,452,64,Yes,Not Elite
+Wesley College,0.823469387755102,9890,350,84,Yes,Not Elite
+Wesleyan University,0.41345347862531434,19130,712,92,Yes,Elite
+West Chester University of Penn.,0.5442940633651184,7844,1372,52,No,Not Elite
+West Liberty State College,0.9123711340206185,4470,478,60,No,Not Elite
+West Virginia Wesleyan College,0.8939974457215837,14200,483,67,Yes,Not Elite
+Western Carolina University,0.7813275434243176,6390,1057,55,No,Not Elite
+Western Maryland College,0.816597510373444,14510,278,60,Yes,Not Elite
+Western Michigan University,0.7844442020290171,6940,2738,55,No,Not Elite
+Western New England College,0.8915151515151515,8994,409,59,Yes,Not Elite
+Western State College of Colorado,0.6006661732050333,5918,604,52,No,Not Elite
+Western Washington University,0.6422134102379236,8124,1549,61,No,Not Elite
+Westfield State College,0.6935483870967742,5542,825,65,No,Not Elite
+Westminster College MO,0.8353474320241692,10720,184,62,Yes,Not Elite
+Westminster College,0.8694779116465864,12065,377,80,Yes,Not Elite
+Westminster College of Salt Lake City,0.7851690294438386,8820,213,50,Yes,Not Elite
+Westmont College,0.7505263157894737,14320,351,87,No,Not Elite
+Wheaton College IL,0.6424581005586593,11480,548,85,Yes,Elite
+Westminster College PA,0.7899884925201381,18460,417,71,Yes,Not Elite
+Wheeling Jesuit College,0.8361018826135105,10500,213,72,Yes,Not Elite
+Whitman College,0.5362708221386352,16670,359,72,Yes,Not Elite
+Whittier College,0.635930993456276,16249,344,52,Yes,Not Elite
+Whitworth College,0.8260481712756468,12660,372,80,Yes,Not Elite
+Widener University,0.6975222066386162,12350,502,63,Yes,Not Elite
+Wilkes University,0.8773758430410791,11150,434,67,Yes,Not Elite
+Willamette University,0.8003618817852834,14800,395,68,Yes,Not Elite
+William Jewell College,0.8250377073906485,10060,315,59,Yes,Not Elite
+William Woods University,0.9275053304904051,10535,227,52,Yes,Not Elite
+Williams College,0.2974199713330148,19629,526,99,Yes,Elite
+Wilson College,0.7784431137724551,11428,46,67,Yes,Not Elite
+Wingate College,0.8208232445520581,7820,383,91,Yes,Not Elite
+Winona State University,0.6156390977443609,4200,1301,58,No,Not Elite
+Winthrop University,0.7780172413793104,6400,769,59,No,Not Elite
+Wisconsin Lutheran College,0.8421052631578947,9100,75,50,Yes,Not Elite
+Wittenberg University,0.8787266296109146,15948,575,78,Yes,Not Elite
+Wofford College,0.6229180546302465,12680,273,75,Yes,Elite
+Worcester Polytechnic Institute,0.8359826589595376,15884,682,82,Yes,Not Elite
+Worcester State College,0.6895766954938553,6797,543,40,No,Not Elite
+Xavier University,0.9213884635017866,11520,695,83,Yes,Not Elite
+Xavier University of Louisiana,0.9132093466857415,6900,695,49,Yes,Not Elite
+Yale University,0.22914525922466136,19840,1317,99,Yes,Elite
+York College of Pennsylvania,0.6206088992974239,4990,691,99,Yes,Not Elite

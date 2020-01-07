@@ -1,0 +1,191 @@
+---
+title: "Review Lab (L01)"
+author: "Data Science III (STAT 301-3)"
+date: "April 7th, 2019"
+output: html_document
+---
+
+# Overview
+
+The goal of this lab is to review concepts and techniques from previous quarters. 
+
+# Datasets 
+
+We will be utilizing `wildfires.csv` dataset contained in the **data** subdirectory.  
+
+# Exercises
+
+Please complete the following exercises. Be sure your solutions are clearly indicated and that the document is neatly formatted.
+
+#### Load Packages
+
+```{r, message = FALSE}
+library(tidyverse)
+library(modelr)
+library(janitor)
+library(glmnet)
+library(glmnetUtils) # improves working with glmnet
+library(Matrix)
+```
+<br>
+
+#### Read in Data
+
+```{r, message = FALSE}
+# Read in data
+wildfire_dat <- read_csv("data/wildfires.csv") %>%
+  clean_names() %>%
+  mutate(winddir = factor(winddir, levels = c("N", "NE", "E", "SE", "S", "SW", "W", "NW")),
+         traffic = factor(traffic, levels = c("lo", "med", "hi")))
+```
+<br>
+
+#### Exercise 1 
+The total area burned by a wildfire is of great concern to government planners. This is captured by the variable `burned` in the `wildfires` dataset. The `starter_scipt.R` file provides two candidate models for estimating the total area burned by a wildfire (`burned`). 
+
+Using tidyverse techniques, preform 10-fold cross validation to estimate each model's test error (e.g., test MSE, test RMSE) in order to determine which model might be superior. **Hint: Remember to set a seed.**
+<br><br>
+```{r}
+# Model 1
+mod01_burned_fn <- function(df){
+  lm(burned ~ . - wlf, data = df)
+}
+
+# Model 2
+mod02_burned_fn <- function(df){
+  lm(burned ~ poly(windspd, 3) + poly(rain, 3) + poly(vulnerable, 3) + heli, data = df)
+}
+
+# 10-fold cross validation
+set.seed(1)
+trained_reg_model <- wildfire_dat %>%
+  crossv_kfold(10, id = "fold")
+
+# Reshape data -- gather model
+trained_reg_model <- trained_reg_model %>%
+  mutate(model1 = map(train, mod01_burned_fn),
+         model2 = map(train, mod02_burned_fn)) %>%
+  gather(key = "model", value = "fit", model1, model2)
+
+# Calculate MSE
+trained_reg_model <- trained_reg_model %>%
+  mutate(mse_mod = map2_dbl(fit, test, mse))
+
+# Present mean test MSE
+trained_reg_model %>%
+  group_by(model) %>%
+  summarise(mean_mse = mean(mse_mod))
+```
+Model 1 has smaller mean test MSE, so model 1 might be superior.
+<br><br>
+
+#### Exercise 2
+Explain the concept of bias-variance trade-off when choosing between the validation set approach, leave-one-out cross-validation (LOOCV), or $k$-fold cross-validation for estimating test MSE.  
+
+The validaton set approach can be highly variable when estimating test MSE and tend to overestimate the test error rate. 
+<br>
+Leave-one-out cross-validation has low bias but high variance. 
+<br>
+Compared with LOOCV, $k$-fold cross-validation has higher bias but lower variance.
+<br><br>
+
+#### Exercise 3
+A wildlife protection area is located in the park from which this data was collected, and is denoted by `wlf` in the dataset. The `starter_scipt.R` file provides two candidate models for predicting whether fires reach this wildlife area. 
+
+Using tidyverse techniques, preform 10-fold cross validation to estimate each model's misclassification rate (e.g., test misclassification rate) in order to determine which model might be superior. **Hint: Remember to set a seed.**
+<br><br>
+```{r}
+# Critical functions
+# calculate test error
+test_err <- function(df, pred){
+  mean(df$wlf != pred)
+}
+
+# calculate predicted prob of default
+predict_fn <- function(mod_fit, df){
+  predict(mod_fit, newdata = df, type = "response")
+}
+
+# calculate pred default 
+predict_default <- function(prob, prior_prob = 0.5){
+  factor(if_else(prob > prior_prob, 1, 0))
+}
+```
+
+```{r}
+# Model 1
+mod01_wlf_fn <- function(df){
+  glm(wlf ~ . - wlf, data = df, family = binomial)
+}
+
+# Model 2
+mod02_wlf_fn <- function(df){
+  glm(wlf ~ poly(windspd, 2) + winddir + poly(rain, 2) + poly(vulnerable, 3) + x*y, data = df)
+}
+
+# 10-fold cross validation
+set.seed(1)
+trained_log <- wildfire_dat %>%
+  crossv_kfold(10, id = "fold")
+
+# reshape data -- gather models
+trained_log <- trained_log %>%
+  mutate(mod01 = map(train, mod01_wlf_fn),
+         mod02 = map(train, mod02_wlf_fn)) %>%
+  gather(key = "model", value = "fit", mod01, mod02)
+
+# Calculate fold_Err
+trained_log <- trained_log %>%
+  mutate(pred_prob = map2(fit, test, predict_fn),
+         pred_default = map(pred_prob, predict_default),
+         test = map(test, as_tibble),
+         fold_Err = map2_dbl(test, pred_default, test_err))
+
+# Calculate test_Err  
+trained_log %>%
+  group_by(model) %>%
+  summarise(test_Err = mean(fold_Err))
+```
+Model 1 has smaller mean test error, so model 1 might be superior.
+<br><br>
+
+### Challenge (Not Mandatory)
+
+Use lasso regression to select a candidate model for estimating `burned` in  **Exercise 1**. Repeat **Exercise 1**, now with 3 candidate models.
+<br><br>
+
+```{r}
+set.seed(1)
+# Lasso regression
+lasso_cv <- wildfire_dat %>% 
+  cv.glmnet(formula = burned ~ . -name, 
+            data = ., alpha = 1, nfolds = 10)
+# lasso's best lambdas
+lasso_lambda_min <- lasso_cv$lambda.min
+
+trained_reg_model <- tibble(train = wildfire_dat %>% list(),
+                        test  = wildfire_dat %>% list()) %>%
+  mutate(model1 = map(train, mod01_burned_fn),
+         model2 = map(train, mod02_burned_fn),
+         lasso_min = map(train, ~ glmnet(burned ~ . -name, data = .x,
+                                         alpha = 1, lambda = lasso_lambda_min)))
+```
+
+```{r}
+xg_mse <- function(model, test){
+  preds = map2(model, test, predict)
+  test_mse = map2_dbl(test, preds, ~ mean((.x$burned - .y)^2))
+  return(test_mse)
+}
+# Calculate MSE
+trained_reg_model <- trained_reg_model %>%
+  mutate(mse_mod1 = map2_dbl(model1, test, mse),
+         mse_mod2 = map2_dbl(model2, test, mse),
+         mse_lasso = xg_mse(lasso_min, test))
+# Present mean test MSE
+trained_reg_model %>%
+  gather(key = "mse", value = "mse_mod", mse_mod1, mse_mod2, mse_lasso) %>%
+  group_by(mse) %>%
+  summarise(mean_mse = mean(mse_mod))
+```
+Model 1 has smaller mean test error, so model 1 might be superior.

@@ -1,0 +1,55 @@
+---
+title: "Wildfires Varible Codebook"
+author: "Data Science III (STAT 301-3)"
+date: ''
+---
+
+```{r, echo = FALSE, message = FALSE}
+library(tidyverse)
+wf <- read_csv("wildfires.csv")
+ranger <- data.frame(x=c(10, -5, -5), y=c(5, 2, -8))
+wildlife <- data.frame(x=c(15, 18, 18, 16.5, 15), y=c(16, 16, 18, 19, 18))
+```
+
+# Data Overview
+
+The wildfires dataset (`wildfires.csv`) describes 500 wildfires that started within a large national park. The origin of each fire is shown below in red. 
+
+```{r, echo=F}
+ggplot(wf) +
+  geom_point(aes(x, y), color='firebrick2', shape=8) +
+  geom_point(data=ranger, aes(x, y), color='forestgreen', size=4, shape=17) +
+  geom_polygon(data=wildlife, aes(x, y), fill='cyan3') + labs(x="", y="") +
+  theme(axis.ticks=element_blank(), axis.text=element_blank(),
+        panel.grid.minor=element_blank(), 
+        panel.background = element_rect(fill = "navajowhite2")) + 
+  annotate("text", x = 17.25, y = -15, label = "Ranger Station", hjust=1) +
+  annotate("point", x = 18.25, y = -15, shape=17, color='forestgreen', size=5) +
+  annotate("text", x = 17.25, y = -13.1, label = "Wildlife Protection Zone", hjust = 1) +
+  annotate("point", x = 18.25, y = -13.1, shape=16, color='cyan3', size=5) +
+  annotate("text", x = 17.25, y = -11.2, label = "Fire Origin", hjust = 1) +
+  annotate("point", x = 18.25, y = -11.2, shape=8, color='firebrick2', size=5)
+```
+
+A number of factors may affect how large a fire becomes. For example, if it starts near a ranger station (green triangles on the map) during a time when it is manned, fires may be less likely to spread. 
+
+# Data
+The dataset contains observations on 350 fires started in a large national park. For each fire, the data contain 15 variables, in addition to two outcomes ('burned' and 'wlf'). These variables are:
+
+  * __`r names(wf)[1]`__, and __`r names(wf)[2]`__: the (x, y) coordinates of where the fire started.
+  * __`r names(wf)[3]`__: air temperature when the fire started
+  * __`r names(wf)[4]`__: air humidity when the fire started
+  * __`r names(wf)[5]`__: wind speed when the fire started
+  * __`r names(wf)[6]`__: wind direction when the fire started
+  * __`r names(wf)[7]`__: rainfall in the week preceding the fire
+  * __`r names(wf)[8]`__: number of days since the last fire
+  * __`r names(wf)[9]`__: amount of vulnerable (unburned) foliage near the fire
+  * __`r names(wf)[10]`__: indicates if another fire is ongoing when the fire starts
+  * __`r names(wf)[11]`__: indicates if the fire started near a ranger station, and that ranger station was manned. Note that even if a fire started near a ranger station, that station may not have been manned at the time.
+  * __`r names(wf)[12]`__: indicates if the fire occured before 1950, which it became more common to use planes and helicopters to fight forest fires.
+  * __`r names(wf)[13]`__: indicates if a helicopter was available to fight the fire
+  * __`r names(wf)[14]`__: composite score for the resources available to fight the fire, including manpower and available air support
+  * __`r names(wf)[15]`__: indicates the level of foot traffic in the national park when the fire started
+  * __`r names(wf)[16]`__: indicates neuber of hectares burned by the fire
+  * __`r names(wf)[17]`__: indicates fire reached the wildlife protection zone
+

@@ -1,0 +1,302 @@
+---
+title: "Unsupervised Learning Lab II (L04)"
+author: "Data Science III (STAT 301-3)"
+date: "April 28th, 2019"
+output: html_document
+---
+
+# Overview
+
+The goal of this lab is to continue practicing the application of unsupervised learning techniques.
+
+# Datasets 
+
+We will be utilizing the `USArrests` data (*USArrests.csv*) which is contained in the **data** subdirectory. Students are able to access the appropriate codebook using `USArrests`. We we also be using the `college_reshaped.csv` dataset which contains both categorical and numerical data (found in **data** subdirectory). The dataset was formed using the `College` dataset from the `ISLR` package.
+
+# Exercises
+
+Please complete the following exercises. The document should be neatly formatted. 
+
+#### Load Packages
+
+```{r, message=FALSE}
+# Loading package(s)
+library(ISLR)
+library(kernlab)
+library(gridExtra)
+library(ggdendro)
+library(magrittr)
+library(janitor)
+library(skimr)
+library(usmap)
+library(ggplot2)
+library(cdlTools)
+library(cluster)
+library(tidyverse)
+```
+<br>
+
+#### Exercise 1 (Ex. 9 Section 10.7 pg 416)
+Consider the `USArrests` data. Perform hierarchical clustering on the states.
+
+```{r, message = FALSE}
+# Load data
+usar = read_csv("data/USArrests.csv") %>%
+  clean_names()
+```
+a. Using hierarchical clustering with complete linkage and Euclidean distance, cluster the states.
+```{r, warning = TRUE}
+# helper function
+# get dendogram
+run_hclust <- function(x, meth){
+  return(hclust(dist(x), method = meth))
+}
+# obtain dendogram for data
+usar_hclust <- tibble(usar = list(usar)) %>%
+  mutate(hcl = map2(usar, "complete", run_hclust), # get dendos
+         dendo = map(hcl, ggdendrogram)) # plot dendos
+# look at the dendo
+usar_hclust %>% pluck("dendo", 1)
+```
+<br>
+
+b. Cut the dendrogram at a height that results in three distinct clusters. Which states belong to which clusters? *Challenge: Maybe plotting a map and filling by cluster membership might be a good idea.*
+```{r}
+# helper function to convert to fipss
+# get the clusterings
+cut_hclust <- function(hclust_obj, ncuts){
+  return(cutree(hclust_obj, ncuts))
+}
+# Get cluster labels for the data
+get_cluster <- function(x, clust_obj){
+  if(class(clust_obj) == "kmeans"){
+    clust = clust_obj$cluster
+  } else {
+    clust = clust_obj
+  }
+  out = x %>% 
+    mutate(cluster = clust)
+  return(out)
+}
+
+# get the cluster data
+usar_hclust <- usar_hclust %>%
+  mutate(clusters = map2(hcl, 3, cut_hclust), # Cut dendo
+         clust_dat = map2(usar, clusters, get_cluster)) # Get cluster info
+```
+#### Plot a map and fill by cluster membership
+```{r}
+# helper function to get fips
+fips <- function( x , to ='FIPS') {
+ 
+  # handle the case of multiple items
+  if(length(x) > 1) {
+    if(!is.null(ncol(x))) return( apply(x, 1:2, fips, to=to) )
+    return( sapply( x, fips, to=to ) )
+  }
+    # for matching convert to upper case 
+    x <- sub(" ","",toupper(as.character(x)))
+    
+    # check if x contains numbers 
+    if( grepl("[0-9]",x[1]) ) {
+      # if the two letters are actually numbers we convert to numeric
+      # and return the abbreviation
+      if(as.numeric(x) %in% cdlTools::census2010FIPS$State.ANSI) {
+        return(as.numeric(x)) 
+      } else return(NA)
+    }
+    
+    # if it is a full state name convert to  
+    if( x %in% sub(" ","",toupper(as.character(cdlTools::stateNames$STATENAME)))) {
+      x <- cdlTools::stateNames[x == sub(" ","",toupper(as.character(cdlTools::stateNames$STATENAME))),'STATE'][1] 
+      x <- as.character(x)
+    }
+   
+    # if the two letters are in the state factor we return the fips
+    if( x %in% as.character(cdlTools::census2010FIPS$State) ) {
+      return( cdlTools::census2010FIPS[x == as.character(cdlTools::census2010FIPS$State), 'State.ANSI'][1] ) 
+    }
+
+    return(NA)
+
+}
+
+#  helper function to plot US map
+plotmap <- function(dat){
+  plot_usmap(data = dat, values = "cluster", labels = TRUE, label_color = "white") +
+  scale_fill_discrete(name = "cluster") +
+  theme(legend.position = "right")
+}
+```
+
+```{r}
+# show the clustering result
+clust_result <- usar_hclust$clust_dat[[1]]
+clust_result <- clust_result %>%
+  select("cluster", "state_name") %>%
+  rename(fips = state_name)
+clust_result$fips <- fips(clust_result$fips)
+clust_result$fips[8] <- c(10)
+clust_result$cluster <- as.factor(clust_result$cluster)
+plotmap(clust_result)
+```
+<br>
+
+c. Hierarchically cluster the states using complete linkage and Euclidean distance, after scaling the variables to have standard deviation one.
+```{r, warning = FALSE}
+# scale variables
+scaledusar <- cbind(usar[,1], scale(usar[,2:5]))
+# obtain dendogram for scaled data
+scaledusar_hclust <- tibble(scaledusar = list(scaledusar)) %>%
+  mutate(scaledhcl = map2(scaledusar, "complete", run_hclust), # get dendos
+         scaleddendo = map(scaledhcl, ggdendrogram)) # plot dendos
+# look at the dendo
+scaledusar_hclust %>% pluck("scaleddendo", 1)
+# get the cluster data
+scaledusar_hclust <- scaledusar_hclust %>%
+  mutate(clusters = map2(scaledhcl, 3, cut_hclust), # Cut dendo
+         clust_dat = map2(scaledusar, clusters, get_cluster)) # Get cluster info
+
+# show the result & plot the map
+scaledclust_result <- scaledusar_hclust$clust_dat[[1]]
+scaledclust_result <- scaledclust_result %>%
+  select("cluster", "state_name") %>%
+  rename(fips = state_name)
+scaledclust_result$fips <- fips(scaledclust_result$fips)
+scaledclust_result$fips[8] <- c(10)
+scaledclust_result$cluster <- as.factor(scaledclust_result$cluster)
+plotmap(scaledclust_result)
+```
+<br>
+
+d. What effect does scaling the variables have on the hierarchical clustering obtained? In your opinion, should the variables be scaled before the inter-observation dissimilarities are computed? Provide a justification for your answer.
+<br><br>
+After scaling, all the variables are in the same scale, so no single variable has very large effect. I think the variables should be scaled before the inter-observation dissimilarities are computed because comparison should happen when all variables are under the same scale.
+
+<br><br>
+
+#### Exercise 2
+Consider the the `college_reshaped.csv` dataset. Scale the numerical features so that they have a standard deviation of one.
+```{r, warning = FALSE}
+# Load data
+college = read_csv("data/college_reshaped.csv") %>%
+  clean_names() %>%
+  mutate_at(vars(name, private, is_elite), factor)
+# scale variables
+scaledcollege <- cbind(college[,c(1,6,7)], scale(college[,2:5]))
+# onehot encode
+onescaledcollege <- scaledcollege %>%
+  onehot::onehot() %>%
+  predict(scaledcollege)
+
+onedata <- tibble(xmat = onescaledcollege %>% list()) %>%
+  mutate(college = college %>% list())
+```
+a. Run $K$-means on the data. 
+Try different numbers of clusters $K$. 
+Does a specific value of $K$ tend to produce better or more distinct clusters?
+```{r}
+# helper function
+# Extract within-cluster SS from K-means object
+get_within_ss <- function(kmean_obj){
+  return(kmean_obj$tot.withinss)
+}
+# Get cluster labels for the data
+getkmeanscluster <- function(x, clust_obj){
+    clust = clust_obj$cluster
+  out = x %>% 
+    mutate(cluster = clust)
+  return(out)
+}
+
+college_kmeans =  onedata%>%
+  crossing(nclust = 2:6) %>%
+  mutate(kmean = map2(xmat, nclust, kmeans, nstart=20), # Fit K-means
+         clusters = map2(college, kmean, getkmeanscluster)) # Get DFs with cluster affiliation
+# show k-means results
+college_kmeans %>%
+  pluck("clusters", 1) %>%
+  select("name", "cluster")
+college_kmeans %>%
+  pluck("clusters", 2) %>%
+  select("name", "cluster")
+college_kmeans %>%
+  pluck("clusters", 3) %>%
+  select("name", "cluster")
+college_kmeans %>%
+  pluck("clusters", 4) %>%
+  select("name", "cluster")
+college_kmeans %>%
+  pluck("clusters", 5) %>%
+  select("name", "cluster")
+```
+ $K=3$ seems to produce better clusters.
+
+<br>
+
+b. Run hierarchical clustering. Try different numbers of clusters, and use both the Euclidean distance and complete linkage as dissimilarity metrics. 
+Be sure that the number of clusters you use in this exercise is similar to the number of clusters you tried in part (a).
+What sort of clusters result? 
+```{r}
+# obtain dendograph for data
+college_hclust <- onedata %>%
+  mutate(hcl = map2(xmat, "complete", run_hclust),
+         dendo = map(hcl, ggdendrogram))
+# show the dendo
+college_hclust %>% pluck("dendo", 1)
+# get the cluster data
+college_hclust <- college_hclust %>%
+  mutate(clusters = map2(hcl, 3, cut_hclust), # Cut dendo
+         clust_dat = map2(college, clusters, get_cluster)) # Get cluster info
+# show the result
+oneclust_result = college_hclust$clust_dat[[1]] %>%
+  select("name", "cluster") 
+oneclust_result
+```
+<br>
+
+c. Run spectral clustering using the radial kernel. Set the number of clusters for the algorithm equal to the number of clusters you found useful in parts (a-b). Do you obtain different clusters than those algorithms?
+```{r}
+# Fit a spectral cluster w/ 3 clusters
+college_spclus <- onedata %>%
+  mutate(spec = map2(xmat, 3, specc, kernal = "radial"))
+# get cluster info
+college_spclus <- college_spclus %>%
+  mutate(spec_clus_data = map2(college, spec, get_cluster))
+# show the result
+spec_result = college_spclus$spec_clus_data[[1]] %>%
+  select("name", "cluster") 
+spec_result
+```
+The cluster results are quite different than those algorithms.
+<br>
+
+d. Use the `cluster` package (specifically the `daisy()` & `pam()`) to perform clustering. Again, use the same number of clusters you used on part (a). Do you obtain different clusters?
+```{r}
+# cluster observations based on their dissimilarities
+college_clusters <- tibble(dat =  scaledcollege %>% list())
+college_clusters <- college_clusters %>%
+  mutate(dissim = map(dat, daisy),
+         clust = map2(dissim, 3, pam))
+# function to get cluster info
+get_cluster_info = function(x, clust_obj){
+    clust = clust_obj$clustering
+  out = x %>% 
+    mutate(cluster = clust)
+  return(out)
+}
+
+college_clusters <- college_clusters %>%
+  mutate(clusters = map2(dat, clust, get_cluster_info)) # Get DFs with cluster affiliation
+# show cluster result
+cluster_result <- college_clusters$clusters[[1]] %>%
+  select("name", "cluster")
+```
+I got similar results.
+<br>
+
+e. Discuss how similar cluster membership is for parts (a-d). What are some reasons that clusters are similar? Why would they be different? In your opinion, do clusters from any one algorithm seem better or more intuitive for this data?
+<br><br>
+The cluster embership is similar when clustering number is three except the spectral clustering. I think it is because that the principles of clustering are similar except the spectral clustering, who uses radial kernal.
+<br>
+In my opinion, the algorithm using 'cluster' package seems better because it can calculate the dissimilarity matrix automatically when factor variables are involved.
