@@ -1,0 +1,361 @@
+---
+title: "Jie_Gu_C01"
+author: "Jie_Gu"
+date: "5/17/2019"
+output: html_document
+---
+
+# Load package
+```{r, message=FALSE}
+library(modelr)
+library(utils)
+library(skimr)
+library(janitor)
+library(ggfortify)
+library(tidyverse)
+library(randomForest)
+```
+# Read in data
+```{r}
+# train data
+competition_train <- read.csv("competition_train.csv", stringsAsFactors = FALSE)
+omit <- function(data){
+  complete <- data %>%
+    na.omit()
+  return(complete)
+}
+
+competition_train_complete <- omit(competition_train)
+
+# test data
+competition_test <- read.csv("competition_test.csv")
+test_data <- cbind(status = competition_train_complete[1:636,1], competition_test[,2:9])
+
+common <- intersect(names(competition_train_complete), names(test_data)) 
+for (p in common) { 
+  if (class(competition_train_complete[[p]]) == "factor") { 
+    levels(test_data[[p]]) <- levels(competition_train_complete[[p]]) 
+  } 
+}
+# all data
+competition_all <- bind_rows(competition_train_complete, test_data)
+competition_all_scaled <- cbind(competition_all[,1:3], scale(competition_all[,4:9]))
+competition_train_scaled <- competition_all_scaled[1:1273,]
+test_data_scaled <- competition_all_scaled[1274:1909,]
+set.seed(1)
+validation <- tibble(train = sample_n(competition_train_scaled, 1146) %>% list(),
+                     test = setdiff(competition_train_scaled, train) %>% list())
+competition <- tibble(train = competition_train_scaled %>% list(),
+                      test = test_data_scaled %>% list())
+```
+
+### Tree
+```{r}
+set.seed(1)
+train_validation <- competition_train_scaled %>%
+  crossv_kfold(5, id = "fold")
+fitRF <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, mtry = mtry))
+}
+test_err <- function(model, df){
+  df <- as_tibble(df)
+  pred <- predict(model, newdata = df, type = "response")
+  return (mean(df$status != pred))
+}
+set.seed(1)
+RandomForest <- train_validation %>% 
+  crossing(tibble(mtry = 1:8)) %>%
+  mutate(model = map2(train, mtry, fitRF),
+         error = map2(model, test, test_err)) 
+RandomForest_error <- RandomForest %>%
+  group_by(mtry) %>%
+  summarise(mean_error = mean(as.numeric(error))) %>% 
+  arrange(mean_error) 
+
+# the best mtry for random forest: 3 72%
+RandomForest_model <- randomForest(status ~ ., data = competition_train_scaled, mtry = 3)
+pred <- predict(RandomForest_model, newdata = test_data_scaled, type = "response")
+
+
+```
+
+### SVM
+```{r}
+set.seed(1)
+radial_svm <- competition %>%
+  mutate(model = map(.x = train, 
+                     .f = function(x) tune(svm, status ~ ., data = x, kernel = "radial", 
+                                              ranges = list(cost = seq(0.01, 10, length = 20), 
+                                                            gamma = seq(0.001, 1, length = 20)))))
+# find the best tuning parameters  70%
+radial_svm$model[[1]]$best.parameters
+radial_svm$model[[1]]$best.performance
+svm_radial_model <- competition %>%
+  mutate(model = map(.x = train, 
+                         .f = function(x) svm(status ~ ., data = x, kernel = "radial", cost =1 , 
+                                              gamma = 0.3, probability = TRUE)),
+         pred = map2(model, test, ~ predict(.x, .y, probability = TRUE)))
+```
+### Neural network
+```{r}
+library(tensorflow)
+use_python("/usr/bin/python")
+library(keras)
+onehot <- function(dat){
+  dat = as_tibble(dat)
+  mat = competition_all_scaled %>%
+    dplyr::select(-c(status)) %>%
+    onehot::onehot(max_levels = 45) %>%
+    predict(dat)
+  return(mat)
+}
+train_data <- onehot(competition_train_scaled)
+train_label <- onehot(competition_train_scaled[,"status"])
+test_data <- onehot(test_data_scaled)
+build_model <- function() {
+  model <- keras_model_sequential() %>% 
+    layer_dense(units = 16, activation = "relu", input_shape = dim(train_data)[[2]]) %>% 
+    layer_dense(units = 16, activation = "relu") %>% 
+    layer_dense(units = 3, activation = "softmax") 
+  model %>% 
+    compile(optimizer = "rmsprop", 
+            loss = "categorical_crossentropy", 
+            metrics = c("accuracy"))
+}
+
+
+set.seed(1)
+k <- 4
+indices <- sample(1:nrow(wlf_train_data))
+folds <- cut(1:length(indices), breaks = k, labels = FALSE) 
+all_err_histories <- NULL
+for (i in 1:k) {
+  cat("processing fold #", i, "\n")
+  # Prepare the validation data: data from partition # k
+  val_indices <- which(folds == i, arr.ind = TRUE) 
+  val_data <- wlf_train_data[val_indices,]
+  val_label <- wlf_train_label[val_indices]
+  
+  # Prepare the training data: data from all other partitions
+  partial_train_data <- wlf_train_data[-val_indices,]
+  partial_train_label <- wlf_train_label[-val_indices]
+  
+  # Build the Keras model (already compiled)
+  wlf_model <- build_wlf_model()
+  
+  # Train the model (in silent mode, verbose=0)
+  wlf_history <- wlf_model %>% 
+    fit(partial_train_data, partial_train_label,
+        validation_data = list(val_data, val_label),
+        epochs = 100, batch_size = 1, verbose = 0)
+  err_history <- 1 - wlf_history$metrics$val_acc
+  all_err_histories <- rbind(all_err_histories, err_history)
+}
+# compute the average of the per-epoch MSE scores for all folds
+average_err_history <- data.frame(
+  epoch = seq(1:ncol(all_err_histories)),
+  validation_err = apply(all_err_histories, 2, mean))
+# get a clearer picture
+ggplot(average_err_history, aes(x = epoch, y = validation_err)) + geom_smooth()
+```
+
+```{r}
+competition_train <- read.csv("competition_train.csv", stringsAsFactors = FALSE)
+
+refill <- function(dat) {
+  dat <- cbind(dat, na_number = rep(0),nrow(dat))
+  for (i in 1:nrow(dat)){
+    dat[i,10] = sum(is.na(dat[i,]))}
+  dat = as.tibble(dat)
+  part1 = dat[,1:3]
+  part1[is.na(part1)] = "unknown"
+  part2 = dat[,4:9]
+  part2 = scale(part2)
+  part2[is.na(part2)] = 0
+  complete <- cbind(part1, part2, dat[,10])
+  complete$status <- as.factor(complete$status)
+  complete$category <- as.factor(complete$category)
+  complete$region <- as.factor(complete$region)
+  return(complete)
+}
+
+
+# test data
+competition_test <- read.csv("competition_test.csv", stringsAsFactors = FALSE)
+test_data <- cbind(status = competition_train[1:636,1], competition_test[,2:9])
+
+# all data
+competition_all <- bind_rows(competition_train, test_data)
+competition_all_refill <- refill(competition_all)
+competition_train_refill <- competition_all_refill[1:11158,]
+test_data_refill<- competition_all_refill[11159:11794,]
+
+
+set.seed(1)
+train_validation <- competition_train_refill %>%
+  crossv_kfold(5, id = "fold")
+fitRF <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, mtry = mtry))
+}
+test_err <- function(model, df){
+  df <- as_tibble(df)
+  pred <- predict(model, newdata = df, type = "response")
+  return (mean(df$status != pred))
+}
+set.seed(1)
+RandomForest <- train_validation %>% 
+  crossing(tibble(mtry = 1:9)) 
+RandomForest <- RandomForest %>%
+  mutate(model = map2(train, mtry, fitRF),
+         error = map2(model, test, test_err)) 
+RandomForest_error <- RandomForest %>%
+  group_by(mtry) %>%
+  summarise(mean_error = mean(as.numeric(error))) %>% 
+  arrange(mean_error) 
+
+# the best mtry for random forest: 2
+RandomForest_model <- randomForest(status ~ ., data = competition_train_refill, mtry = 2)
+pred <- predict(RandomForest_model, newdata = test_data_refill, type = "response")
+
+```
+
+```{r}
+competition_train <- read.csv("competition_train.csv", stringsAsFactors = FALSE)
+
+refill <- function(dat) {
+  dat <- cbind(dat, no_missing = rep(0),nrow(dat))
+  for (i in 1:nrow(dat)){
+    dat[i,10] = ifelse(sum(is.na(dat[i,]))==0, "yes", "no")}
+  dat = as.tibble(dat)
+  part1 = dat[,1:3]
+  part1[is.na(part1)] = "unknown"
+  part2 <- dat[,4:9]
+  part2 = scale(part2)
+  part2[is.na(part2)] = 0
+  complete <- cbind(part1, part2, dat[,10])
+  complete$status <- as.factor(complete$status)
+  complete$category <- as.factor(complete$category)
+  complete$region <- as.factor(complete$region)
+  complete$no_missing <- as.factor(complete$no_missing)
+  return(complete)
+}
+
+
+# test data
+competition_test <- read.csv("competition_test.csv", stringsAsFactors = FALSE)
+test_data <- cbind(status = competition_train[1:636,1], competition_test[,2:9])
+
+# all data
+competition_all <- bind_rows(competition_train, test_data)
+competition_all_refill <- refill(competition_all)
+competition_train_refill <- competition_all_refill[1:11158,]
+test_data_refill<- competition_all_refill[11159:11794,]
+
+
+set.seed(1)
+train_validation <- competition_train_refill %>%
+  crossv_kfold(5, id = "fold")
+fitRF <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, mtry = mtry))
+}
+test_err <- function(model, df){
+  df <- as_tibble(df)
+  pred <- predict(model, newdata = df, type = "response")
+  return (mean(df$status != pred))
+}
+set.seed(1)
+RandomForest <- train_validation %>% 
+  crossing(tibble(mtry = 1:9)) 
+RandomForest <- RandomForest %>%
+  mutate(model = map2(train, mtry, fitRF),
+         error = map2(model, test, test_err)) 
+RandomForest_error <- RandomForest %>%
+  group_by(mtry) %>%
+  summarise(mean_error = mean(as.numeric(error))) %>% 
+  arrange(mean_error) 
+
+# the best mtry for random forest: 2
+RandomForest_model <- randomForest(status ~ ., data = competition_train_refill, mtry = 2)
+pred <- predict(RandomForest_model, newdata = test_data_refill, type = "response")
+
+```
+
+```{r}
+competition_train <- read.csv("competition_train.csv", stringsAsFactors = FALSE)
+
+refill <- function(dat) {
+  dat <- cbind(dat, na_number = rep(0),nrow(dat))
+  for (i in 1:nrow(dat)){
+    dat[i,10] = sum(is.na(dat[i,]))}
+  dat = as_tibble(dat)
+  part1 = dat[,1:3]
+  part1[is.na(part1)] = "unknown"
+  part2 <- dat[,4:9]
+  part2 = scale(part2)
+  part2[is.na(part2)] = 0
+  complete <- cbind(part1, part2, dat[,10])
+  complete$status <- as.factor(complete$status)
+  complete$category <- as.factor(complete$category)
+  complete$region <- as.factor(complete$region)
+  return(complete)
+}
+
+
+# test data
+competition_test <- read.csv("competition_test.csv", stringsAsFactors = FALSE)
+test_data <- cbind(status = competition_train[1:636,1], competition_test[,2:9])
+
+# all data
+competition_all <- bind_rows(competition_train, test_data)
+competition_all_refill <- refill(competition_all)
+competition_train_refill <- competition_all_refill[1:11158,]
+test_data_refill<- competition_all_refill[11159:11794,]
+
+
+set.seed(1)
+train_validation <- competition_train_refill %>%
+  crossv_kfold(5, id = "fold")
+fitRF_mtry <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, mtry = mtry))
+}
+fitRF_nodesize <- function(data, nodesize){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, nodesize = nodesize, mtry = 2))
+}
+fitRF_ntree <- function(data, ntree){
+  data <- as_tibble(data)
+  return(randomForest(status ~ ., data = data, mtry = 2, nodesize = 17, ntree = ntree))
+}
+test_err <- function(model, df){
+  df <- as_tibble(df)
+  pred <- predict(model, newdata = df, type = "response")
+  return (mean(df$status != pred))
+}
+set.seed(1)
+RandomForest <- train_validation %>% 
+  crossing(tibble(ntree = seq(500, 5000, by = 100))) 
+RandomForest <- RandomForest %>%
+  mutate(model = map2(train, ntree, fitRF_ntree),
+         error = map2(model, test, test_err)) 
+RandomForest_error <- RandomForest %>%
+  group_by(nodesize) %>%
+  summarise(mean_error = mean(as.numeric(error))) %>% 
+  arrange(mean_error) 
+
+# the best mtry for random forest: 2
+RandomForest_model <- randomForest(status ~ ., data = competition_train_refill, mtry = 2, nodesize = 17)
+pred <- predict(RandomForest_model, newdata = test_data_refill, type = "response")
+
+```
+
+
+# write data
+```{r}
+output <- bind_cols(ID = competition_test[,1], pred %>% list()) %>%
+  rename("status" = "V1")
+write.csv(output, "output.csv", row.names = FALSE)
+```

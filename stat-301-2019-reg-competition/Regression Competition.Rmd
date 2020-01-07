@@ -1,0 +1,227 @@
+---
+title: "regression competition"
+author: "Jie_Gu"
+date: "6/6/2019"
+output: html_document
+---
+
+```{r, message = FALSE}
+# load package
+library(modelr)
+library(tensorflow)
+use_python("/usr/bin/python")
+library(keras)
+library(ggplot2)
+library(randomForest)
+library(glmnet) 
+library(glmnetUtils)
+library(tidyverse)
+
+```
+
+```{r}
+# read in data
+train <- read.csv("train.csv", stringsAsFactors = FALSE)
+test <- read.csv("test.csv", stringsAsFactors = FALSE)
+# unify the level
+test_data <- cbind(total_funding_usd = train[1:1572,1], test[,2:8])
+```
+
+```{r}
+outlier1 <- subset(subset(train, total_funding_usd == 0), number_of_funding_rounds != 0)
+outlier2 <- subset(train, number_of_employees == 0)
+train_new <- setdiff(train, outlier1)
+train_new <- setdiff(train_new, outlier2)
+# train_new <- train_new[-c(2289,4760,4797,14593,3375,3396,12870,14687,2795,13699,2718,7102,13734,14731,12877,3803,9439),]
+# pairs(train_new[,c(1,3:7)])
+# plot(train_new$number_of_funding_rounds, train_new$total_funding_usd)
+```
+
+```{r}
+# helper function to refill missing data
+refill <- function(dat) {
+  dat <- cbind(dat, na_number = rep(0),nrow(dat))
+  for (i in 1:nrow(dat)){
+    dat[i,9] = sum(is.na(dat[i,]))}
+  dat = as_tibble(dat)
+  part1 = dat[,c(2,8)]
+  part1[is.na(part1)] = "unknown"
+  part2 = dat[,3:7]
+  part2 = scale(part2)
+  part2[is.na(part2)] = 0
+  complete <- cbind(dat[,1], part1, part2, dat[,9])
+  complete$category <- as.factor(complete$category)
+  complete$region <- as.factor(complete$region)
+  return(complete)
+}
+
+# prepare the data
+all_data <- bind_rows(train_new, test_data)
+all_data_refill <- refill(all_data)
+train_refill <- all_data_refill[1:15130,]
+test_refill <- all_data_refill[15131:16702,]
+```
+
+```{r}
+refill2 <- function(dat) {
+  dat <- cbind(dat, na_number = rep(0),nrow(dat))
+  for (i in 1:nrow(dat)){
+    dat[i,9] = sum(is.na(dat[i,]))}
+  dat = as_tibble(dat)
+  part1 = dat[,c(2,8)]
+  part1[is.na(part1)] = "unknown"
+  part2 = dat[,4:7]
+  part2 = scale(part2)
+  part2[is.na(part2)] = 0
+  complete <- cbind(dat[,1], part1, dat[,3], part2, dat[,9])
+  complete$category <- as.factor(complete$category)
+  complete$region <- as.factor(complete$region)
+  return(complete)
+}
+all_data_refill2 <- refill2(all_data)
+train_refill2 <- all_data_refill2[1:15130,]
+test_refill2 <- all_data_refill2[15131:16702,]
+```
+
+```{r}
+linear_model <- lm(total_funding_usd ~ ., data = train_subset)
+pred <- predict(linear_model, newdata = test_refill2)
+```
+
+```{r}
+fitRF_mtry <- function(data, mtry){
+  data <- as_tibble(data)
+  return(randomForest(total_funding_usd ~ ., data = data, mtry = mtry))
+}
+fitRF_nodesize <- function(data, nodesize){
+  data <- as_tibble(data)
+  return(randomForest(total_funding_usd ~ ., data = data, mtry = 2, nodesize = nodesize))
+}
+set.seed(1)
+train_validation <- train_refill %>%
+  crossv_kfold(2, id = "fold")
+# cross validation to choose mtry
+set.seed(1)
+RandomForest_mtry <- train_validation %>% 
+  crossing(tibble(mtry = 1:8)) 
+RandomForest_mtry <- RandomForest_mtry %>%
+  mutate(model = map2(train, mtry, fitRF_mtry),
+         mse = map2(model, test, mse)) 
+RandomForest_mtry_mse <- RandomForest_mtry %>%
+  group_by(mtry) %>%
+  summarise(mean_mse = mean(as.numeric(mse))) %>% 
+  arrange(mean_mse) 
+# cross validation to choose nodesize
+set.seed(1)
+RandomForest_nodesize <- train_validation %>% 
+  crossing(tibble(nodesize = 10:40)) 
+RandomForest_nodesize <- RandomForest_nodesize %>%
+  mutate(model = map2(train, nodesize, fitRF_nodesize),
+         mse = map2(model, test, mse)) 
+RandomForest_nodesize_mse <- RandomForest_nodesize %>%
+  group_by(nodesize) %>%
+  summarise(mean_mse = mean(as.numeric(mse))) %>% 
+  arrange(mean_mse) 
+ggplot(RandomForest_nodesize_mse, aes(x = nodesize, y = mean_mse)) + geom_smooth()
+# final model
+RandomForest_model <- randomForest(total_funding_usd ~ ., data = train_refill, mtry = 2, nodesize = 30)
+pred <- predict(RandomForest_model, newdata = test_refill)
+```
+
+```{r}
+# one-hot encode
+onehot_encoding <- function(dat){
+  dat = as_tibble(dat)
+  mat = all_data_refill %>%
+    dplyr::select(- total_funding_usd) %>%
+    onehot::onehot() %>%
+    predict(dat)
+  return(mat)
+}
+# prepare the data
+nn_train_data <- onehot_encoding(train_refill)
+nn_train_targets <- as.matrix(train_refill[,"total_funding_usd"])
+nn_test_data <- onehot_encoding(test_refill)
+nn_test_targets <- as.matrix(test_refill[,"total_funding_usd"])
+
+# build the network
+build_model <- function() {
+  model <- keras_model_sequential() %>% 
+    layer_dense(units = 128, activation = "relu", input_shape = dim(nn_train_data)[[2]]) %>% 
+    layer_dense(units = 128, activation = "relu") %>% 
+    layer_dense(units = 1) 
+  model %>% 
+    compile(optimizer = "rmsprop", 
+            loss = "mse", 
+            metrics = c("mse"))
+}
+
+# k-fold cross validation
+set.seed(1)
+k <- 2
+indices <- sample(1:nrow(nn_train_data))
+folds <- cut(1:length(indices), breaks = k, labels = FALSE) 
+all_mse_histories <- NULL
+for (i in 1:k) {
+  cat("processing fold #", i, "\n")
+  # Prepare the validation data: data from partition # k
+  val_indices <- which(folds == i, arr.ind = TRUE) 
+  val_data <- nn_train_data[val_indices,]
+  val_targets <- nn_train_targets[val_indices]
+  
+  # Prepare the training data: data from all other partitions
+  partial_train_data <- nn_train_data[-val_indices,]
+  partial_train_targets <- nn_train_targets[-val_indices]
+  
+  # Build the Keras model (already compiled)
+  nn_model <- build_model()
+  
+  # Train the model (in silent mode, verbose=0)
+  history <- nn_model %>% 
+    fit(partial_train_data, partial_train_targets,
+        validation_data = list(val_data, val_targets),
+        epochs = 50, batch_size = 1, verbose = 0)
+  mse_history <- history$metrics$val_mean_squared_error
+  all_mse_histories <- rbind(all_mse_histories, mse_history)
+}
+# compute the average of the per-epoch MSE scores for all folds
+average_mse_history <- data.frame(
+  epoch = seq(1:ncol(all_mse_histories)),
+  validation_mse = apply(all_mse_histories, 2, mean))
+# get a clearer picture
+ggplot(average_mse_history, aes(x = epoch, y = validation_mse)) + geom_smooth()
+# final model
+neural_model <- build_model()
+neural_model %>% 
+  fit(nn_train_data, nn_train_targets, epochs = 14, batch_size = 1, verbose = 0)
+pred <- predict(neural_model, nn_test_data)
+```
+
+```{r}
+# lambda grid to search -- use for ridge regression
+lambda_grid <- 10^seq(0, 10, length = 1000)
+# ridge regression
+ridge_cv <- train_refill2 %>% 
+  cv.glmnet(formula = total_funding_usd ~ ., 
+            data = ., alpha = 0, nfolds = 5, lambda = lambda_grid)
+
+# ridge's best lambdas
+ridge_cv$lambda.min
+
+ridge_model <- glmnet(total_funding_usd ~ ., data = train_refill2, alpha = 0, lambda = 3065395)
+pred <- predict(ridge_model, test_refill2)
+```
+
+# write data
+```{r}
+for (i in 1:length(pred)){
+  if (test_refill2$number_of_funding_rounds[i] == 0 || test_refill2$number_of_employees[i] == 0)
+  {
+    pred[i] = 0
+  }
+}
+output <- bind_cols(id = test[1:1572,1], pred %>% list()) %>%
+  rename("total_funding_usd" = "V1")
+
+write.csv(output, "output.csv", row.names = FALSE)
+```
